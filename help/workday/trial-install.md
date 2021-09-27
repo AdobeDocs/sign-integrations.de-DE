@@ -12,9 +12,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: beafe6c0-262f-4f5b-9315-a023a4eef4a2
-source-git-commit: 3f826e88969562a69279a29dfdd98775ec01fd51
+source-git-commit: c25be043b404e9bf7a90496d4e47c1f22069313d
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '995'
 ht-degree: 31%
 
 ---
@@ -29,7 +29,7 @@ Dieses Dokument soll Kunden von [!DNL Workday] helfen, ein Testkonto bei Adobe S
 * Einrichtung und Konfiguration des Mandanten
 * Reporting und [!DNL Workday] Studio-Integration
 
-**Hinweis**: Wenn Sie über ein Adobe Sign-Konto verfügen, müssen Sie keine Testversion starten. Sie können sich an Ihren Client Success Manager wenden, um die [!DNL Workday]-Integration anzufordern.
+**Hinweis**: Wenn Sie über ein Adobe Sign-Konto verfügen, muss keine Testversion gestartet werden. Sie können sich an Ihren Client Success Manager wenden, um die [!DNL Workday]-Integration anzufordern.
 
 Die Schritte auf oberster Ebene zur Integration sind folgende:
 
@@ -49,13 +49,13 @@ Innerhalb eines Arbeitstags stellt ein Adobe Sign-Onboarding-Spezialist Ihr Kont
 
 ![Die Begrüßungs-E-Mail von Adobe Sign](images/welcome-email-2020.png)
 
-Folgen Sie den Anweisungen in der E-Mail, um Ihr Konto zu initialisieren und auf Ihre Adobe Sign [!UICONTROL Home]-Seite zuzugreifen.
+Um Ihr Konto zu initialisieren und auf Ihre Adobe Sign [!UICONTROL Home]-Seite zuzugreifen, folgen Sie den Anweisungen in der E-Mail.
 
 ![Das Adobe Sign-Dashboard](images/classic-home.png)
 
 ## Integrationsschlüssel generieren {#generate-an-integration-key}
 
-Bei neuen Installationen müssen Sie einen Integrationsschlüssel in Adobe Sign generieren und dann in [!DNL Workday] eingeben. Dieser Schlüssel authentifiziert die Adobe Sign- und [!DNL Workday]-Umgebungen, um sich gegenseitig zu vertrauen und Inhalte freizugeben.
+Bei neuen Installationen müssen Sie einen Integrationsschlüssel in Adobe Sign generieren und diesen dann in [!DNL Workday] eingeben. Dieser Schlüssel authentifiziert die Adobe Sign- und [!DNL Workday]-Umgebungen, um sich gegenseitig zu vertrauen und Inhalte freizugeben.
 
 So erstellen Sie in Adobe Sign einen Integrationsschlüssel:
 
@@ -165,4 +165,4 @@ Adobe Sign-Kunden wenden sich bezüglich Support bitte an ihren Customer Success
 
 * [Dokumentkonfiguration und Beispiele](https://www.adobe.com//go/adobesign_workday_quick_start){target=&quot;_blank&quot;}
 
-[**Adobe Sign-Support kontaktieren**](https://adobe.com/go/adobesign-support-center_de)
+[**Adobe Sign-Support kontaktieren**](https://www.adobe.com/go/adobesign-support-center)

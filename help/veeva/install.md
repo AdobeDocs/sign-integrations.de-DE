@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 3f826e88969562a69279a29dfdd98775ec01fd51
+source-git-commit: c25be043b404e9bf7a90496d4e47c1f22069313d
 workflow-type: tm+mt
-source-wordcount: '3061'
+source-wordcount: '3043'
 ht-degree: 2%
 
 ---
@@ -122,7 +122,7 @@ Für eine erfolgreiche Integration des Vault wird ein neues Sicherheitsprofil mi
 
 ![Bild der Signaturereignisdetails](images/security-profiles.png)
 
-Alle Sicherheitsprofile von Benutzern, die Zugriff auf den Adobe Sign-Verlauf in Vault benötigen, müssen über Leseberechtigung für Signatur-, Signatur- und Signaturereignisobjekte verfügen.
+Sicherheitsprofile von Benutzern, die einen Zugriff auf den Adobe Sign-Verlauf in Vault benötigen, müssen über Leseberechtigungen für Signatur-, Signatur- und Signaturereignisobjekte verfügen.
 
 ![Bild der Signaturereignisdetails](images/set-permissions.png)
 
@@ -214,7 +214,7 @@ Der Adobe Sign-Vereinbarungslebenszyklus hat folgende Status:
 * ABGEBROCHEN
 * ABGELAUFEN
 
-Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Status entsprechen, in dem sich die Vereinbarung befindet. Dazu fügen Sie in jedem Lebenszyklus, der von Dokumenten verwendet wird, die für die Signatur der Adobe infrage kommen, folgende Status hinzu:
+Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Status entsprechen, in dem sich die Vereinbarung befindet. Fügen Sie dazu in jedem Lebenszyklus, der von Dokumenten verwendet wird, die zur Signatur der Adobe berechtigt sind, folgende Status hinzu:
 
 * **Vor Signatur**  der Adobe (überprüft): Dies ist ein Platzhaltername für den Status, von dem aus das Dokument an Adobe Sign gesendet werden kann. Je nach Dokumenttyp kann es sich um den Status &quot;Entwurf&quot;oder &quot;Geprüft&quot;handeln. Die Beschriftung des Dokumentstatus kann gemäß den Anforderungen des Kunden angepasst werden. Vor der Adobe muss der Signaturstatus die folgenden zwei Benutzeraktionen definieren:
 
@@ -229,7 +229,7 @@ Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Stat
    * Aktion, die den Dokumentstatus in *In Adobe Signing state* ändert. Der Name dieser Benutzeraktion muss für alle Dokumenttypen für jeden Lebenszyklus gleich sein. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen entspricht Ja&quot;festgelegt werden.
    * Aktion, die den Status des Dokuments in den Status *Abgebrochene Adobe Sign* ändert. Der Name dieser Benutzeraktion muss für alle Dokumenttypen für jeden Lebenszyklus gleich sein. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen entspricht Ja&quot;festgelegt werden.
    * Aktion, die die Webaktion &quot;Adobe Sign&quot;aufruft.
-   * Aktion, die die Webaktion &quot;Adobe Sign abbrechen&quot;aufruft. Dieser Status muss über eine Sicherheitsfunktion verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Anzeigen von Dokumenten, Anzeigen von Inhalten, Bearbeiten von Feldern, Bearbeiten von Beziehungen, Herunterladen von Quellen, Verwalten von sichtbaren Darstellungen und Ändern des Status.
+   * Aktion, die die Webaktion &quot;Adobe Sign abbrechen&quot;aufruft. Dieser Status muss über eine Sicherheit verfügen, die der Adobe Sign-Administratorrolle Folgendes ermöglicht: Anzeigen von Dokumenten, Anzeigen von Inhalten, Bearbeiten von Feldern, Bearbeiten von Beziehungen, Herunterladen von Quellen, Verwalten von sichtbaren Darstellungen und Ändern des Status.
 
    ![Bild des Lebenszyklusstatus 2](images/lifecycle-state2.png)
 
@@ -238,7 +238,7 @@ Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Stat
    * Aktion, die den Status des Dokuments in den Status &quot;Abgebrochen&quot;von Adobe Sign ändert. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, welchen Lebenszyklus sie hat. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen entspricht Ja&quot;festgelegt werden.
    * Aktion, die den Dokumentstatus in den Status &quot;Signatur in Adobe&quot;ändert. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, welchen Lebenszyklus sie hat. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen entspricht Ja&quot;festgelegt werden.
    * Aktion, die die Webaktion &quot;Adobe Sign&quot;aufruft
-   * Aktion, die die Webaktion &quot;Adobe Sign abbrechen&quot;aufruft. Dieser Status muss über eine Sicherheitsfunktion verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Anzeigen von Dokumenten, Anzeigen von Inhalten, Bearbeiten von Feldern, Bearbeiten von Beziehungen, Herunterladen von Quellen, Verwalten von sichtbaren Darstellungen und Ändern des Status.
+   * Aktion, die die Webaktion &quot;Adobe Sign abbrechen&quot;aufruft. Dieser Status muss über eine Sicherheit verfügen, die der Adobe Sign-Administratorrolle Folgendes ermöglicht: Anzeigen von Dokumenten, Anzeigen von Inhalten, Bearbeiten von Feldern, Bearbeiten von Beziehungen, Herunterladen von Quellen, Verwalten von sichtbaren Darstellungen und Ändern des Status.
 
    ![Bild des Lebenszyklusstatus 3](images/lifecycle-state3.png)
 
@@ -248,7 +248,7 @@ Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Stat
    * Aktion, die den Status des Dokuments in den Status &quot;Adobe Sign-abgelehnt&quot;ändert. Der Zielstatus dieser Aktion kann unabhängig von den Kundenanforderungen sein und kann für verschiedene Typen unterschiedlich sein. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, welchen Lebenszyklus sie hat. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen entspricht Ja&quot;festgelegt werden.
    * Aktion, die den Status des Dokuments in den Status &quot;Adobe signiert&quot;ändert. Der Zielstatus dieser Aktion kann unabhängig von den Kundenanforderungen sein und kann für verschiedene Typen unterschiedlich sein. Der Name dieser Benutzeraktion muss jedoch für alle Dokumenttypen gleich sein, unabhängig davon, welcher Lebenszyklus abgeschlossen wird. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen entspricht Ja&quot;festgelegt werden.
    * Aktion, die die Webaktion *Adobe Sign* aufruft.
-   * Aktion, die die Webaktion *Adobe Sign abbrechen* aufruft. Dieser Status muss über eine Sicherheitsfunktion verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Anzeigen von Dokumenten, Anzeigen von Inhalten, Bearbeiten von Feldern, Bearbeiten von Beziehungen, Herunterladen von Quellen, Verwalten von sichtbaren Darstellungen und Ändern des Status.
+   * Aktion, die die Webaktion *Adobe Sign abbrechen* aufruft. Dieser Status muss über eine Sicherheit verfügen, die der Adobe Sign-Administratorrolle Folgendes ermöglicht: Anzeigen von Dokumenten, Anzeigen von Inhalten, Bearbeiten von Feldern, Bearbeiten von Beziehungen, Herunterladen von Quellen, Verwalten von sichtbaren Darstellungen und Ändern des Status.
 
    ![Bild des Lebenszyklusstatus 4](images/lifecycle-state4.png)
 
@@ -263,7 +263,7 @@ Das folgende Diagramm zeigt die Zuordnungen zwischen Adobe Sign-Vereinbarungs- u
 
 ### Gruppe &quot;Dokumenttyp erstellen&quot; {#create-document-type-group}
 
-Administratoren müssen einen neuen Dokumenttyp-Gruppendatensatz mit dem Namen &quot;Adobe Sign Document&quot;erstellen. Diese Dokumenttypgruppe wird für alle Dokumentklassifizierungen hinzugefügt, die für Adobe Sign-Prozesse infrage kommen. Da die Eigenschaft &quot;Gruppe&quot;des Dokumenttyps nicht von Typ zu Untertyp oder von Untertyp zu Klassifizierungsebene geerbt wird, muss sie für die Klassifizierung jedes Dokuments festgelegt werden, die für Adobe Sign infrage kommt.
+Administratoren müssen einen neuen Dokumenttyp-Gruppendatensatz mit dem Namen &quot;Adobe Sign Document&quot;erstellen. Diese Dokumenttypgruppe wird für alle Dokumentklassifizierungen hinzugefügt, die für Adobe Sign-Prozesse infrage kommen. Da die Eigenschaft &quot;Gruppe&quot;des Dokumenttyps nicht von Typ zu Untertyp oder vom Untertyp zu Klassifizierungsebene geerbt wird, muss sie für die Klassifizierung jedes Dokuments festgelegt werden, die für Adobe Sign infrage kommt.
 
 ![Bild des Dokumenttyps](images/document-type.png)
 
@@ -294,7 +294,7 @@ Ein Adobe Sign-Kontoadministrator muss die folgenden Schritte ausführen, um [!D
 
    ![Bild](images/middleware-signin.png)
 
-   Sobald der Benutzer angemeldet ist, wird auf der Seite oben rechts die zugehörige E-Mail-ID und eine zusätzliche Registerkarte &quot;Einstellungen&quot;angezeigt (siehe unten).
+   Nach erfolgreicher Anmeldung werden auf der Seite die zugehörige E-Mail-ID und eine Registerkarte &quot;Einstellungen&quot;angezeigt, wie unten dargestellt.
 
    ![Bild](images/middleware_settings.png)
 
@@ -362,6 +362,6 @@ Ein Adobe Sign-Kontoadministrator muss die folgenden Schritte ausführen, um [!D
 
 **Schritt 3.** Stellen Sie das Paket bereit.
 
-**Schritt 4** Erstellen Sie eine neue Benutzergruppe namens &quot;Adobe Sign Admin Group&quot;.
+**Schritt 4** Erstellen Sie eine neue Gruppe mit dem Namen &quot;Adobe Sign Admin Group&quot;.
 
 **Schritt 5** Erstellen Sie ein Integrations-Benutzerprofil mit dem Sicherheitsprofil &quot;Adobe Sign Integration Profile&quot;und weisen Sie es der Adobe Sign Admin Group zu.
