@@ -2,10 +2,10 @@
 user-guide-title: Adobe Sign Integrationsleitfaden
 index: true
 role: Leader
-source-git-commit: 5ac9dc27dcdb6cab19281e6aafd4ea0524cc01d6
+source-git-commit: 27610773d47a947dbfa1deb3f594667406a9aefb
 workflow-type: tm+mt
-source-wordcount: '48'
-ht-degree: 27%
+source-wordcount: '70'
+ht-degree: 35%
 
 ---
 
@@ -25,4 +25,9 @@ ht-degree: 27%
 + Adobe Sign für Veeva Vault {#veeva}
    + [Installationshandbuch](veeva/install.md)
    + [Benutzerhandbuch](veeva/user.md)
++ Adobe Sign für NetSuite {#netsuite}
+   + [Adobe Sign für NetSuite – Versionshinweise](netsuite/release-notes.md)
+   + [Installationshandbuch für Adobe Sign für NetSuite](netsuite/install.md)
++ Adobe Sign for SugarCrm {#sugarcrm}
+   + [Installationshandbuch](sugarcrm/install.md)
 
