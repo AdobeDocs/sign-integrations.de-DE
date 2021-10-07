@@ -7,9 +7,9 @@ type: Documentation
 solution: Adobe Sign
 role: User, Developer
 topic: Integrations
-source-git-commit: 27610773d47a947dbfa1deb3f594667406a9aefb
+source-git-commit: 40fe3649aab0499ce8e5fbd1b11308ffbd759a44
 workflow-type: tm+mt
-source-wordcount: '2336'
+source-wordcount: '2354'
 ht-degree: 2%
 
 ---
@@ -50,9 +50,9 @@ In diesem Dokument erfahren Administratoren, wie Sie die [!DNL SugarCRM]-Adobe [
 Wenn Sie die Adobe [!DNL EchoSign] für [!DNL SugarCRM]-Plugin auf eine neuere Version aktualisieren, sollten Sie das Plug-In installieren, ohne die vorherige Version zu deinstallieren.
 Nach dem Upgrade des Plug-ins gehen Sie zu **[!UICONTROL Administration]** > **[!UICONTROL Reparieren]** und wählen **[!UICONTROL Schnellreparatur und neu erstellen]**.
 
-**Hinweis:** Wenn Sie ein früheres Plug-In deinstallieren, entfernen Sie die Tabellen während der Deinstallation nicht. Else, you may lose the [!DNL EchoSign] agreement data.
+**Hinweis:** Wenn Sie ein früheres Plug-In deinstallieren, entfernen Sie die Tabellen während der Deinstallation nicht. Andernfalls verlieren Sie möglicherweise die [!DNL EchoSign]-Vereinbarungsdaten.
 
-## Configure the Plugin {#configure-plugin}
+## Zusatzmodul konfigurieren {#configure-plugin}
 
 1. Wenn Sie bereits Adobe [!DNL EchoSign] sind, fahren Sie mit Schritt 2 fort.
 
@@ -139,9 +139,9 @@ Hinzufügen von EchoSign-Vereinbarungen zu anderen [!DNL SugarCRM]-Modulen:
 
    ![Bild](images/uninstall-display-log.png)
 
-## Use Adobe [!DNL EchoSign] for [!DNL SugarCRM] {#use-echosign-for-sugarcrm}
+## Adobe [!DNL EchoSign] für [!DNL SugarCRM] verwenden {#use-echosign-for-sugarcrm}
 
-Sie können eine [!DNL EchoSign]-Adobe erstellen, die einem Konto, einem Kontakt, einem Angebot oder anderen [!DNL SugarCRM]-Modulen zugeordnet ist. Sie können Dateien anhängen, Empfänger angeben und zum Unterschreiben senden. Adobe [!DNL EchoSign] updates [!DNL SugarCRM] with the current status of the agreement and stores the signed contract in [!DNL SugarCRM] once it is fully executed.
+Sie können eine [!DNL EchoSign]-Adobe erstellen, die einem Konto, einem Kontakt, einem Angebot oder anderen [!DNL SugarCRM]-Modulen zugeordnet ist. Sie können Dateien anhängen, Empfänger angeben und zum Unterschreiben senden. Adobe [!DNL EchoSign] aktualisiert [!DNL SugarCRM] mit dem aktuellen Status des Vertrags und speichert den signierten Vertrag in [!DNL SugarCRM], sobald er vollständig ausgeführt wurde.
 
 ### Erstellen und Bearbeiten einer Adobe [!DNL EchoSign]-Vereinbarung {#create-edit-agreements}
 
@@ -157,10 +157,10 @@ Sie können Vereinbarungen über das [!DNL EchoSign]-Vereinbarungsmodul oder üb
    1. **[!UICONTROL Empfänger zum Signieren erinnern:]** Wählen Sie aus, wie oft ein Empfänger daran erinnert werden soll, ein Dokument zu signieren. Die Optionen lauten &quot;Täglich&quot;oder &quot;Wöchentlich&quot;.
    1. **[!UICONTROL Tage bis zum Signaturtermin:]** Geben Sie die Anzahl der Tage an, bis die Vereinbarung signiert werden muss.
    1. **[!UICONTROL Vorschau anz., Signatur platzieren od. Formularfelder hinzufüg.:]**  Wählen Sie diese Option, um die Vereinbarung vor dem Senden in der Vorschau anzuzeigen, oder ziehen Sie Signaturfelder, Initialfelder oder andere Formularfelder per Drag &amp; Drop in die Vereinbarung, bevor sie an Empfänger gesendet wird. Nachdem Sie eine Vorschau des Dokuments angezeigt oder die gewünschten Felder in das Dokument gezogen haben, müssen Sie die Schaltfläche Senden auswählen, um die Vereinbarung an den Empfänger zu senden.
-   1. **[!UICONTROL Host Signing for the First Signer:]** Indicate whether the sender would like to host the agreement signing in-person.
-      * **[!UICONTROL Message:]** Include a message for the recipient.
-      * **[!UICONTROL Account, Opportunity, Quote:]** Select or modify the Account, Opportunity, or Quote associated with this agreement.
-      * **[!UICONTROL Language:]** Specify the language in which the signing page and email notifications are displayed to the recipients.
+   1. **[!UICONTROL Hostsignatur für den ersten Unterzeichner:]** Geben Sie an, ob der Absender die Vereinbarung persönlich unterschreiben möchte.
+      * **[!UICONTROL Nachricht:]** Fügen Sie eine Nachricht für den Empfänger ein.
+      * **[!UICONTROL Konto, Opportunity, Angebot:]** Wählen oder ändern Sie das Konto, die Opportunity oder das Angebot, das mit dieser Vereinbarung verknüpft ist.
+      * **[!UICONTROL Sprache:]** Geben Sie die Sprache an, in der die Signaturseite und die E-Mail-Benachrichtigungen den Empfängern angezeigt werden.
 
       ![Bild](images/create-agreements.png)
 
@@ -248,8 +248,12 @@ Das Unterfeld [!UICONTROL Ereignisse] einer [!DNL EchoSign]-Vereinbarung verfolg
 
 ![Bild](images/update-cancel-status.png)
 
-### Send reminders {#send-reminders}
+Nachdem eine Vereinbarung zur Signatur gesendet wurde, wählen Sie **[!UICONTROL Status aktualisieren]**, um den neuesten Status abzurufen.
 
-To send a reminder to the current signer after sending the agreement, select **[!UICONTROL Send Reminder]**. Es wird sofort eine E-Mail-Erinnerung an den aktuellen Unterzeichner über die Vereinbarung gesendet, die auf die Signatur wartet.
+![Bild](images/events-subpanel.png)
+
+### Erinnerungen senden {#send-reminders}
+
+Um dem aktuellen Unterzeichner nach dem Senden der Vereinbarung eine Erinnerung zu senden, wählen Sie **[!UICONTROL Erinnerung senden]**. Es wird sofort eine E-Mail-Erinnerung an den aktuellen Unterzeichner über die Vereinbarung gesendet, die auf die Signatur wartet.
 
 ![Bild](images/send-reminder.png)
