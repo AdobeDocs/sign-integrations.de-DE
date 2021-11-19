@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 7ded835b48519cba656f160e691c697c91e2c8d0
+source-git-commit: aef70e46f24bb019b07092d84d69519fe16846e4
 workflow-type: tm+mt
-source-wordcount: '3131'
+source-wordcount: '3163'
 ht-degree: 2%
 
 ---
@@ -182,9 +182,13 @@ Für die Integration von Adobe Sign und Vault müssen Sie die folgenden zwei Web
 
    Typ: Dokumentenziel: In Vault-URL anzeigen: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
+   ![Bild von Adobe Sign erstellen](images/create-adobe-sign.png)
+
 * **Adobe Sign abbrechen**: Sie kündigt eine bestehende Vereinbarung in Adobe Sign ab und stellt den Status eines Dokuments auf den ursprünglichen Status zurück.
 
    Typ: Dokumentenziel: In Vault-URL anzeigen: : <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+
+   ![Abbruchbild für Adobe Sign](images/cancel-adobe-sign.png)
 
 ## Dokumentlebenszyklus aktualisieren {#document-lifecycle}
 
@@ -192,12 +196,16 @@ Für jeden Dokumenttyp, der für die Signatur der Adobe infrage kommt, muss der 
 
 ### Lebenszyklusrolle {#lifecycle-role}
 
-Die Rolle der Adobe Sign Admin-Anwendung muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature infrage kommen. Diese Rolle sollte mit den folgenden Optionen erstellt werden:
-
-* Dynamische Zugriffssteuerung aktivieren
-* Regeln für die Dokumentfreigabe, die nur die Gruppe &quot;Dokumenttyp&quot;enthalten
+Die Rolle der Adobe Sign Admin-Anwendung muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature infrage kommen (siehe unten).
 
 ![Bild der Lebenszyklus-Administratorrollen](images/document-lifecycle-admin-role.png)
+
+Die Administratorrolle sollte mit den folgenden Optionen erstellt werden:
+
+* Dynamische Zugriffssteuerung aktiviert.
+* Regeln für die Dokumentfreigabe, die nur die Gruppe &quot;Dokumenttyp&quot;enthalten, wie in der folgenden Abbildung gezeigt.
+
+![Bild der Adobe Sign-Freigaberegel](images/adobe-sign-sharing-rule.png)
 
 ### Lebenszyklusstatus {#lifecycle-states}
 
@@ -263,7 +271,9 @@ Administratoren müssen einen neuen Dokumenttyp-Gruppendatensatz mit dem Namen &
 
 ![Bild des Dokumenttyps](images/document-type.png)
 
-![Bild des Dokumenttyps](images/document-edit-details.png)
+![Bild der Dokumentbearbeitungsdetails](images/document-edit-details.png)
+
+![Bild von Dokumenttypgruppen](images/document-type-groups.png)
 
 ### Benutzerrollen-Setup erstellen {#create-user-role-setup}
 
