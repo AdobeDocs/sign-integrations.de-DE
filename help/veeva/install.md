@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: aef70e46f24bb019b07092d84d69519fe16846e4
+source-git-commit: 1cf95ee799d0a349636027db0c06467f4529663c
 workflow-type: tm+mt
-source-wordcount: '3163'
+source-wordcount: '3164'
 ht-degree: 2%
 
 ---
@@ -257,7 +257,7 @@ Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Stat
       ![Bild des Lebenszyklusstatus 4](images/lifecycle-state4.png)
 
 * **Adobe signiert (genehmigt)**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument nach Adobe Sign hochgeladen wird und dass die Vereinbarung abgeschlossen ist (Status &quot;SIGNIERT&quot;oder &quot;GENEHMIGT&quot;). Es handelt sich um einen erforderlichen Status und kann ein vorhandener Lebenszyklusstatus sein, z. B. &quot;Genehmigt&quot;.
-Für diesen Status sind keine Benutzeraktionen erforderlich. Dieser Status muss über eine Sicherheitsfunktion verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Dokumente anzeigen, Inhalte anzeigen und Felder bearbeiten.
+Für diesen Status sind keine Benutzeraktionen erforderlich. Dieser Status muss über eine Sicherheitsfunktion verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Anzeigen von Dokumenten, Anzeigen von Inhalten und Bearbeiten von Feldern.
 
 Das folgende Diagramm zeigt die Zuordnungen zwischen Adobe Sign-Vereinbarungs- und Vault-Dokumentstatus, wobei der Status &quot;Vor Adobe Signatur&quot;Entwurf ist.
 
