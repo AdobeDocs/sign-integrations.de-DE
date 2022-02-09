@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 722f39a7220d72fde19ebb1058c8c2e8dea06b46
+source-git-commit: f647d0573f3e44f5a7e7997a309a8d18886959be
 workflow-type: tm+mt
-source-wordcount: '3401'
+source-wordcount: '3317'
 ht-degree: 2%
 
 ---
@@ -43,41 +43,13 @@ Die allgemeinen Schritte zum Abschließen der Integration sind:
 
 So konfigurieren Sie [!DNL Veeva Vault] für die Integration mit Adobe Sign müssen Sie die folgenden Schritte implementieren:
 
-**Schritt 1.** Erstellen Sie eine neue Gruppe mit dem Namen &quot;Adobe Sign Admin Group&quot;.
-
-**Schritt 2.** [Paket bereitstellen](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
-
-**Schritt 3.** Sicherheitsprofile erstellen
-
-**Schritt 4.** Benutzer erstellen
-
-**Schritt 5.** Dokumenttypgruppe konfigurieren
-
-**Schritt 6.** Benutzerrolleneinrichtung erstellen
-
-**Schritt 7.** Dokumentfelder einrichten
-
-**Schritt 8.** Deklarieren von Dokumentdarstellungen
-
-**Schritt 9.** Webaktionen aktualisieren
-
-**Schritt 10.** Lebenszyklus eines Dokuments aktualisieren
-
-**Schritt 11.** Hinzufügen der Adobe Sign-Bühne zum allgemeinen Lebenszyklus in Lifecycle-Bühnengruppen
-
-**Schritt 12.** Berechtigungen für Benutzerrolle im Lebenszyklusstatus festlegen
-
-**Schritt 13.** Einrichten der atomaren Sicherheit basierend auf dem Dokumentstatus und der Benutzerrolle
-
-**Schritt 14.** Dokumentnachrichten für Adobe Sign erstellen Abbrechen
-
-### 1. Gruppe erstellen {#create-group}
+### Schritt 1. Gruppe erstellen {#create-group}
 
 So konfigurieren Sie Adobe Sign für [!DNL Vault]eine neue Gruppe mit dem Namen *Adobe Sign Admin Group* erstellt. Diese Gruppe wird verwendet, um die Sicherheit auf Dokumentfeldebene für Adobe Sign-bezogene Felder festzulegen. Sie sollte Folgendes umfassen: *Adobe Sign-Integrationsprofil* standardmäßig aktiviert ist.
 
 ![Bild mit Details zum Signaturereignis](images/create-admin-group.png)
 
-### 2. Paket bereitstellen {#deploy-package}
+### Schritt 2. Paket bereitstellen {#deploy-package}
 
 [Paket bereitstellen](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip) und führen Sie die Schritte aus. Nach der Bereitstellung erstellt das Paket Folgendes:
 
@@ -166,7 +138,7 @@ Sie müssen eine Anwendungsrolle mit der Bezeichnung *Adobe Sign-Administratorro
 
 ![Image von Anwendungsrollen erstellen](images/create-application-roles.png)
 
-### 3. Sicherheitsprofile einrichten {#security-profiles}
+### Schritt 3. Einrichten von Sicherheitsprofilen {#security-profiles}
 
 Für eine erfolgreiche Integration des Vault wird ein neues Sicherheitsprofil mit dem Namen *Adobe Sign-Integrationsprofil* erstellt und seine Berechtigung auf *Adobe Sign-Administratoraktionen*. Das Adobe Sign-Integrationsprofil wird dem Systemkonto zugewiesen und wird von der Integration beim Aufrufen von Vault-APIs verwendet. Dieses Profil ermöglicht Berechtigungen für:
 
@@ -179,7 +151,7 @@ Sicherheitsprofile von Benutzern, die Zugriff auf den Adobe Sign-Verlauf in Tres
 
 ![Bild mit Details zum Signaturereignis](images/set-permissions.png)
 
-## 4. Benutzer erstellen {#create-user}
+### Schritt 4. Benutzer erstellen {#create-user}
 
 Der Vault-Systemkontobenutzer der Adobe Sign-Integration muss:
 
@@ -198,7 +170,7 @@ Um sicherzustellen, dass der Systemkontobenutzer für den jeweiligen Dokumentleb
 
    ![Bild mit Details zum Signaturereignis](images/add-user.png)
 
-### 5. Gruppe &quot;Dokumenttyp&quot; erstellen {#create-document-type-group}
+### Schritt 5. Dokumenttypgruppe konfigurieren {#create-document-type-group}
 
 Wenn Sie das Adobe Sign-Paket bereitstellen, wird ein Dokumenttyp-Gruppendatensatz mit dem Namen &quot;Adobe Sign Document&quot; erstellt.
 
@@ -212,13 +184,13 @@ Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufü
 
 **Hinweis:** Wenn das Objekt Benutzerrollen einrichten das Feld nicht enthält, das auf das Objekt Dokumenttypgruppe verweist, müssen Sie das Feld hinzufügen.
 
-### 6. Benutzerrollen einrichten {#create-user-role-setup}
+### Schritt 6. Benutzerrolleneinrichtung erstellen {#create-user-role-setup}
 
 Sobald der/die Lebenszyklus(e) ordnungsgemäß konfiguriert ist/sind, sollte das System sicherstellen, dass der Adobe Sign-Administratorbenutzer von DAC für alle Dokumente hinzugefügt wird, die für den Adobe Sign-Prozess geeignet sind. Dazu erstellen Sie den entsprechenden Benutzerrollen-Setup -Datensatz, der Folgendes angibt:
 
-* Dokumenttypgruppe als &quot;Adobe Sign-Dokument&quot;
-* Anwendungsrolle als &quot;Adobe Sign-Administratorrolle&quot; und
-* Integrationsbenutzer.
+* Dokumenttypgruppe als Adobe Sign-Dokument
+* Anwendungsrolle als Adobe Sign-Administratorrolle
+* Integrationsbenutzer
 
 ![Bild der Benutzerrollen-Einrichtung](images/user-role-setup.png)
 
@@ -226,7 +198,7 @@ Sobald der/die Lebenszyklus(e) ordnungsgemäß konfiguriert ist/sind, sollte das
 
 ![Bild der Benutzerrollen-Einrichtung](images/create-setup-field.png)
 
-### 7. Dokumentfelder einrichten {#create-fields}
+### Schritt 7. Dokumentfelder einrichten {#create-fields}
 
 Um die Integration mit Adobe Sign herzustellen, sind die folgenden zwei neuen freigegebenen Dokumentfelder erforderlich:
 
@@ -257,7 +229,7 @@ So richten Sie Dokumentfelder ein:
 
    ![Bild von Adobe Sign-Benutzeraktionen zulassen](images/allow-adobe-sign-user-actions.png)
 
-### 8. Dokumentdarstellungen deklarieren {#declare-renditions}
+### Schritt 8. Dokumentvarianten deklarieren {#declare-renditions}
 
 Der neue Ausgabedarstellungstyp *Adobe Sign Rendition (adobe_sign_rendition__c) wird von der Vault-Integration verwendet, um signierte PDF-Dokumente in Adobe Sign hochzuladen. Die Adobe Sign-Ausgabedarstellung sollte für jeden Dokumenttyp deklariert werden, der für die Signatur der Adobe in Frage kommt.
 
@@ -265,7 +237,7 @@ Der neue Ausgabedarstellungstyp *Adobe Sign Rendition (adobe_sign_rendition__c) 
 
 ![Bild von Darstellungsarten](images/edit-details-clinical-type.png)
 
-### 9. Webaktionen aktualisieren {#web-actions}
+### Schritt 9. Webaktionen aktualisieren {#web-actions}
 
 Für die Adobe Sign- und Vault-Integration müssen Sie die folgenden zwei Webaktionen erstellen und konfigurieren:
 
@@ -281,7 +253,7 @@ Für die Adobe Sign- und Vault-Integration müssen Sie die folgenden zwei Webakt
 
    ![Bild der Kündigung von Adobe Sign](images/cancel-adobe-sign.png)
 
-### 10. Lebenszyklus von Dokumenten aktualisieren {#document-lifecycle}
+### Schritt 10. Lebenszyklus von Dokumenten aktualisieren {#document-lifecycle}
 
 Für jeden Dokumenttyp, der für die Signatur durch die Adobe berechtigt ist, muss der entsprechende Dokumentlebenszyklus aktualisiert werden, indem neue Lebenszyklusrollen und -status hinzugefügt werden.
 
@@ -365,21 +337,21 @@ Das folgende Diagramm zeigt die Zuordnungen zwischen Adobe Sign-Vereinbarungs- u
 
 ![Abbildung der Adobe Sign Vault-Karten](images/sign-vault-mappings.png)
 
-### 11. Hinzufügen der Adobe Sign-Bühne zum allgemeinen Lebenszyklus in Lifecycle-Bühnengruppen
+### Schritt 11. Hinzufügen der Adobe Sign-Bühne zum allgemeinen Lebenszyklus in Lifecycle-Bühnengruppen
 
 ![Abbildung der Adobe Sign Vault-Karten](images/add-adobe-sign-stage.png)
 
-### 12. Legen Sie Berechtigungen für die Benutzerrolle im Lebenszyklusstatus fest.
+### Schritt 12. Berechtigungen für Benutzerrolle im Lebenszyklusstatus festlegen
 
 Sie müssen die entsprechenden Berechtigungen für jede Benutzerrolle im Lebenszyklusstatus festlegen, wie in der Abbildung unten gezeigt.
 
 ![Abbildung der Adobe Sign Vault-Karten](images/set-user-role-permissions.png)
 
-### 13. Richten Sie die atomare Sicherheit basierend auf dem Dokumentstatus und der Benutzerrolle ein.
+### Schritt 13. Einrichten der atomaren Sicherheit basierend auf dem Dokumentstatus und der Benutzerrolle
 
 ![Abbildung der Adobe Sign Vault-Karten](images/set-atomic-security.png)
 
-### 14. Dokumentnachrichten für Adobe Sign erstellen Abbrechen
+### Schritt 14. Dokumentnachrichten für Adobe Sign erstellen Abbrechen
 
 ![Abbildung der Adobe Sign Vault-Karten](images/create-cancel-message.png)
 
