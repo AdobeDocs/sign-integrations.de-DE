@@ -9,9 +9,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: e1394c24aebd1e026eb6c5a33935149f33ef8ea4
+source-git-commit: f460f23ac3e412b527a91668561fff48ac518941
 workflow-type: tm+mt
-source-wordcount: '668'
+source-wordcount: '667'
 ht-degree: 2%
 
 ---
@@ -20,7 +20,7 @@ ht-degree: 2%
 
 [**Adobe Sign-Support kontaktieren**](https://adobe.com/go/adobesign-support-center_de)
 
-Dieses Dokument soll Ihnen helfen, [!DNL Veeva Vault] Kunden erfahren, wie sie Adobe Sign für [!DNL Veeva Vault] Integration, um eine Vereinbarung zu senden.
+Dieses Dokument soll Ihnen helfen, [!DNL Veeva Vault] Kunden erfahren, wie sie Adobe Sign für [!DNL Veeva Vault] Integration zum Senden einer Vereinbarung.
 
 ## Übersicht {#overview}
 
@@ -30,7 +30,7 @@ Der gesamte Prozess des Versendens von Dokumenten zum Unterschreiben ähnelt dem
 
 Integration zwischen Adobe Sign und [!DNL Veeva Vault] Optimierung und Beschleunigung von Dokumenten- und Unterschrifts-Workflows. Wenn Sie den Integrationsarbeitsablauf verwenden, haben Sie folgende Möglichkeiten:
 
-* Einsparung von Zeit und Ressourcen für den Versand per E-Mail, die Übernachtung und das Faxen.
+* Sparen Sie Zeit und Ressourcen, die Sie für Schneckenmails, Übernachtungen oder Faxe aufwenden müssen.
 * Versendet Verträge zur elektronischen Unterzeichnung oder Genehmigung von [!DNL Veeva Vault], greifen Sie auf den Vertragsverlauf in Echtzeit zu und zeigen Sie gespeicherte Verträge an.
 * Verfolgt Verträge in Echtzeit innerhalb eurer Organisation und erhaltet Updates, wenn sie angezeigt, unterschrieben, storniert oder abgelehnt werden.
 * eSign in über 20 Sprachen und Unterstützung des Rückfax-Diensts in über 50 Gebietsschemas weltweit.
@@ -103,11 +103,11 @@ So senden Sie einen Vertrag mit Adobe Sign für Veeva:
 
    ![](images/iFrame-contact-administrator.png)
 
-1. Nachdem das Dokument verarbeitet wurde, ziehen Sie die Signaturfelder aus dem rechten Bereich und legen sie ab. Wählen Sie dann **[!UICONTROL Senden]**.
+1. Nachdem das Dokument verarbeitet wurde, ziehen Sie die Signaturfelder aus dem rechten Bereich und wählen Sie **[!UICONTROL Senden]**.
 
    ![](images/add-signature-fields.png)
 
-1. Das Dokument wird zur Signatur an den Empfänger gesendet. Sobald der Empfänger die Dokument-E-Mail erhält, ändert sich der Dokumentstatus von [!UICONTROL Überprüft] bis [!UICONTROL Signieren in Adobe].
+1. Das Dokument wird zur Signatur an die Empfänger gesendet. Sobald der Empfänger die Dokument-E-Mail erhält, ändert sich der Dokumentstatus von [!UICONTROL Überprüft] bis [!UICONTROL Signieren in Adobe].
 
    ![](images/in-adobe-signing.png)
 

@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: f647d0573f3e44f5a7e7997a309a8d18886959be
+source-git-commit: f460f23ac3e412b527a91668561fff48ac518941
 workflow-type: tm+mt
-source-wordcount: '3317'
+source-wordcount: '3319'
 ht-degree: 2%
 
 ---
@@ -27,7 +27,7 @@ In diesem Dokument wird erläutert, wie Sie die Integration von Adobe Sign mit [
 
 Die allgemeinen Schritte zum Abschließen der Integration sind:
 
-* Administratorkonto in Adobe Sign aktivieren (nur für neue Kunden)
+* Aktivieren Sie Ihr Administratorkonto in Adobe Sign (nur für neue Kunden).
 * Erstellen Sie Objekte, um den Verlauf eines Vereinbarungslebenszyklus in Vault zu verfolgen.
 * Erstellen Sie ein neues Sicherheitsprofil.
 * Konfigurieren Sie eine Gruppe in Adobe Sign für die [!DNL Veeva Vault] Integrationsbenutzer.
@@ -41,7 +41,7 @@ Die allgemeinen Schritte zum Abschließen der Integration sind:
 
 ## Konfigurieren Sie [!DNL Veeva Vault] {#configure-veeva}
 
-So konfigurieren Sie [!DNL Veeva Vault] für die Integration mit Adobe Sign müssen Sie die folgenden Schritte implementieren:
+So konfigurieren Sie [!DNL Veeva Vault] für die Integration mit Adobe Sign müssen Sie die unten aufgeführten Schritte implementieren.
 
 ### Schritt 1. Gruppe erstellen {#create-group}
 
@@ -194,7 +194,7 @@ Sobald der/die Lebenszyklus(e) ordnungsgemäß konfiguriert ist/sind, sollte das
 
 ![Bild der Benutzerrollen-Einrichtung](images/user-role-setup.png)
 
-**Hinweis:** Wenn das Objekt Benutzerrollen einrichten das Feld nicht enthält, das auf das Objekt Dokumenttypgruppe verweist, müssen Sie das Feld hinzufügen. Gehen Sie dazu zu Objekt > Benutzerrollen einrichten > Felder und führen Sie die erforderlichen Schritte aus, wie in der Abbildung unten gezeigt.
+**Hinweis:** Wenn das Objekt Benutzerrollen einrichten das Feld nicht enthält, das auf das Objekt Dokumenttypgruppe verweist, müssen Sie das Feld hinzufügen. Gehen Sie dazu zu **[!UICONTROL Objekt]** > **[!UICONTROL Benutzerrollen einrichten]** > **[!UICONTROL Felder]** und führen Sie die erforderlichen Schritte aus, wie in der Abbildung unten gezeigt.
 
 ![Bild der Benutzerrollen-Einrichtung](images/create-setup-field.png)
 
@@ -209,13 +209,13 @@ Um die Integration mit Adobe Sign herzustellen, sind die folgenden zwei neuen fr
 
 So richten Sie Dokumentfelder ein:
 
-1. Wechseln Sie zur Registerkarte Konfiguration und wählen Sie **Dokumentfelder** > **Freigegebene Felder**.
-1. Wählen Sie im Feld &quot;Anzeigeabschnitt&quot; die Option &quot;Anzeigeabschnitt erstellen&quot; und weisen Sie die Adobe &quot;Signatur&quot; als Abschnittsbezeichnung zu.
+1. Wechseln Sie zur Registerkarte Konfiguration und wählen Sie **[!UICONTROL Dokumentfelder]** > **[!UICONTROL Freigegebene Felder]**.
+1. Wählen Sie im Feld Anzeigeabschnitt die Option **[!UICONTROL Anzeigeabschnitt erstellen]** und zuweisen **[!UICONTROL Signatur der Adobe]** als Abschnittsbeschriftung.
 
    ![Bild mit Dokumentdetails](images/create-display-section.png)
 
-1. Aktualisieren Sie für die beiden freigegebenen Dokumentfelder (signature__c und allow_adobe_sign_user_actions__c) den UI-Abschnitt mit der Abschnittsbezeichnung &quot;Adobe Signature&quot;.
-1. Fügen Sie die drei freigegebenen Felder allen Dokumenttypen hinzu, die für die Adobe Signatur berechtigt sind. Wählen Sie dazu auf der Seite &quot;Basisdokument&quot; **Hinzufügen** > **Vorhandenes freigegebenes Feld** in der rechten oberen Ecke.
+1. Aktualisieren Sie für die beiden freigegebenen Dokumentfelder (signature__c und allow_adobe_sign_user_actions__c) den Abschnitt &quot;Benutzeroberfläche&quot; mit **[!UICONTROL Signatur der Adobe]** als Abschnittsbezeichnung verwenden.
+1. Fügen Sie die drei freigegebenen Felder allen Dokumenttypen hinzu, die für die Adobe Signatur berechtigt sind. Wählen Sie dazu auf der Seite &quot;Basisdokument&quot; **[!UICONTROL Hinzufügen]** > **[!UICONTROL Vorhandenes freigegebenes Feld]** in der rechten oberen Ecke.
 
    ![Bild mit Dokumentdetails](images/add-existing-fields.png)
 
@@ -225,13 +225,13 @@ So richten Sie Dokumentfelder ein:
 
    ![Bild mit Dokumentdetails](images/security-overrides.png)
 
-1. Administratoren müssen das vorhandene freigegebene Feld hinzufügen. *Vault-Überlagerungen deaktivieren (disable_vault_overlays__v)* und legen Sie für alle Dokumenttypen, die zur Adobe Signatur berechtigt sind, den Wert Aktiv fest. Optional kann das Feld über eine bestimmte Sicherheit verfügen, die nur Mitgliedern der Adobe Sign-Administratorgruppe das Aktualisieren ihres Werts ermöglicht.
+1. Administratoren müssen das vorhandene freigegebene Feld hinzufügen. *Vault-Überlagerungen deaktivieren (disable_vault_overlays__v)* und legen Sie **[!UICONTROL Aktiv]** für alle Dokumenttypen, für die eine Adobe Signatur erforderlich ist. Optional kann das Feld über eine bestimmte Sicherheit verfügen, die nur Mitgliedern der Adobe Sign-Administratorgruppe das Aktualisieren ihres Werts ermöglicht.
 
    ![Bild von Adobe Sign-Benutzeraktionen zulassen](images/allow-adobe-sign-user-actions.png)
 
 ### Schritt 8. Dokumentvarianten deklarieren {#declare-renditions}
 
-Der neue Ausgabedarstellungstyp *Adobe Sign Rendition (adobe_sign_rendition__c) wird von der Vault-Integration verwendet, um signierte PDF-Dokumente in Adobe Sign hochzuladen. Die Adobe Sign-Ausgabedarstellung sollte für jeden Dokumenttyp deklariert werden, der für die Signatur der Adobe in Frage kommt.
+Der neue Ausgabedarstellungstyp namens *Adobe Sign Rendition (adobe_sign_rendition__c)* wird von der Vault-Integration verwendet, um signierte PDF-Dokumente in Adobe Sign hochzuladen. Sie müssen die Adobe Sign-Ausgabedarstellung für jeden Dokumenttyp deklarieren, der für Adobe Signature qualifiziert ist.
 
 ![Bild von Darstellungsarten](images/rendition-type.png)
 
@@ -255,22 +255,20 @@ Für die Adobe Sign- und Vault-Integration müssen Sie die folgenden zwei Webakt
 
 ### Schritt 10. Lebenszyklus von Dokumenten aktualisieren {#document-lifecycle}
 
-Für jeden Dokumenttyp, der für die Signatur durch die Adobe berechtigt ist, muss der entsprechende Dokumentlebenszyklus aktualisiert werden, indem neue Lebenszyklusrollen und -status hinzugefügt werden.
+Für jeden Dokumenttyp, der zur Signatur durch die Adobe berechtigt ist, müssen Sie den entsprechenden Dokumentlebenszyklus aktualisieren, indem Sie eine neue Lebenszyklusrolle und neue Status hinzufügen.
 
 Der Lebenszyklus von Adobe Sign-Vereinbarungen hat folgende Status:
 
-    * ENTWURF
-    * AUTHORING oder DOCUMENTS_NOT_YET_PROCESSED
-    * OUT_FOR_SIGNATURE oder OUT_FOR_APPROVAL
-    * SIGNIERT ODER GENEHMIGT
-    * ABGEBROCHEN
-    * ABGELAUFEN
+* ENTWURF
+* AUTHORING oder DOCUMENTS_NOT_YET_PROCESSED
+* OUT_FOR_SIGNATURE oder OUT_FOR_APPROVAL
+* SIGNIERT ODER GENEHMIGT
+* ABGEBROCHEN
+* ABGELAUFEN
 
 Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktualisieren:
 
-1. Lebenszyklusrolle hinzufügen
-
-   Die Adobe Sign-Admin-Anwendungsrolle muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature qualifiziert sind, wie unten dargestellt.
+1. Lebenszyklusrolle hinzufügen. Die Adobe Sign-Admin-Anwendungsrolle muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature berechtigt sind, wie unten dargestellt.
 
    ![Bild von Lebenszyklus-Administratorrollen](images/document-lifecycle-admin-role.png)
 
@@ -281,27 +279,32 @@ Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktuali
 
    ![Bild der Adobe Sign-Freigaberegel](images/adobe-sign-sharing-rule.png)
 
-2. Lebenszyklusstatus erstellen. Gehen Sie dazu zu **Einstellungen** > **Konfiguration** > **Dokument-Lebenszyklen** > **Allgemeine Lebenszyklen** > **Zustände** > **Erstellen**. Erstellen Sie als Nächstes die folgenden Status:
+2. Lebenszyklusstatus erstellen. Gehen Sie dazu zu **[!UICONTROL Einstellungen]** > **[!UICONTROL Konfiguration]** > **[!UICONTROL Dokument-Lebenszyklen]** > **[!UICONTROL Allgemeine Lebenszyklen]** > **[!UICONTROL Zustände]** > **[!UICONTROL Erstellen]**. Erstellen Sie als Nächstes die folgenden Status:
 
    * In Adobe Sign Draft
-      ![Bild der Adobe Sign-Freigaberegel](images/create-draft-state.png)
+
+   ![Bild der Adobe Sign-Freigaberegel](images/create-draft-state.png)
+
    * In Adobe Sign Authoring
-      ![Bild der Adobe Sign-Freigaberegel](images/create-authoring-state.png)
+
+   ![Bild der Adobe Sign-Freigaberegel](images/create-authoring-state.png)
+
    * Signieren in Adobe
-      ![Bild der Adobe Sign-Freigaberegel](images/create-signing-state.png)
+
+   ![Bild der Adobe Sign-Freigaberegel](images/create-signing-state.png)
 
 3. Fügen Sie den unten aufgeführten Status Benutzeraktionen hinzu.
 
    Wenn ein Vault-Dokument an Adobe Sign gesendet wird, sollte sein Status dem Status entsprechen, in dem sich die Vereinbarung befindet. Fügen Sie dazu in jedem Lebenszyklus, der von Dokumenten verwendet wird, die für die Adobe Signature berechtigt sind, folgende Status hinzu:
 
-* **Vor der Signatur der Adobe** (Überprüft): Dies ist ein Platzhaltername für den Status, von dem aus Dokumente an Adobe Sign gesendet werden können. Je nach Dokumenttyp kann der Status &quot;Entwurf&quot; oder &quot;Überprüft&quot; sein. Die Dokumentstatusbeschriftung kann gemäß den Anforderungen des Kunden angepasst werden. Vor dem Signaturstatus der Adobe müssen die folgenden zwei Benutzeraktionen definiert werden:
+   * **Vor der Signatur der Adobe** (Überprüft): Dies ist ein Platzhaltername für den Status, von dem aus Dokumente an Adobe Sign gesendet werden können. Je nach Dokumenttyp kann der Status &quot;Entwurf&quot; oder &quot;Überprüft&quot; sein. Die Dokumentstatusbeschriftung kann gemäß den Anforderungen des Kunden angepasst werden. Vor dem Signaturstatus der Adobe müssen die folgenden zwei Benutzeraktionen definiert werden:
 
    * Aktion, die den Status des Dokuments in *In Adobe Sign Draft* Status. Der Name dieser Benutzeraktion muss für alle Dokumenttypen eines Lebenszyklus gleich sein. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
    * Aktion, die die Webaktion &quot;Adobe Sign&quot; aufruft. Dieser Status muss über eine Sicherheit verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Folgendes zu tun: Dokument anzeigen, Inhalt anzeigen, Felder bearbeiten, Beziehungen bearbeiten, Quelle herunterladen, Darstellung verwalten und Status ändern.
 
-      ![Abbildung des Lebenszyklusstatus 1](images/lifecycle-state1.png)
+   ![Abbildung des Lebenszyklusstatus 1](images/lifecycle-state1.png)
 
-* **In Adobe Sign Draft**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Sign hochgeladen wurde und sich die zugehörige Vereinbarung im Status ENTWURF befindet. Dies ist ein erforderlicher Status. Dieser Status muss die folgenden fünf Benutzeraktionen definieren:
+   * **In Adobe Sign Draft**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Sign hochgeladen wurde und sich die zugehörige Vereinbarung im Status ENTWURF befindet. Dies ist ein erforderlicher Status. Dieser Status muss die folgenden fünf Benutzeraktionen definieren:
 
    * Aktion, die den Status des Dokuments in *In Adobe Sign Authoring* Status. Der Name dieser Benutzeraktion muss für alle Dokumenttypen eines Lebenszyklus gleich sein. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
    * Aktion, die den Status des Dokuments in *Signierstatus &quot;In Adobe&quot;*. Der Name dieser Benutzeraktion muss für alle Dokumenttypen eines Lebenszyklus gleich sein. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
@@ -309,18 +312,18 @@ Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktuali
    * Aktion, die die Webaktion &quot;Adobe Sign&quot; aufruft.
    * Aktion, die die Webaktion &quot;Adobe Sign abbrechen&quot; aufruft. Dieser Status muss über eine Sicherheit verfügen, die der Adobe Sign-Administratorrolle Folgendes ermöglicht: Dokument anzeigen, Inhalt anzeigen, Felder bearbeiten, Beziehungen bearbeiten, Quelle herunterladen, Darstellung verwalten und Status ändern.
 
-      ![Abbildung des Lebenszyklusstatus 2](images/lifecycle-state2.png)
+   ![Abbildung des Lebenszyklusstatus 2](images/lifecycle-state2.png)
 
-* **In Adobe Sign Authoring**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Sign hochgeladen wurde und sich die zugehörige Vereinbarung im Status AUTHORING oder DOCUMENTS_NOT_YET_PROCESSED befindet. Dies ist ein erforderlicher Status. Für diesen Status müssen die folgenden vier Benutzeraktionen definiert sein:
+   * **In Adobe Sign Authoring**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Sign hochgeladen wurde und sich die zugehörige Vereinbarung im Status AUTHORING oder DOCUMENTS_NOT_YET_PROCESSED befindet. Dies ist ein erforderlicher Status. Für diesen Status müssen die folgenden vier Benutzeraktionen definiert sein:
 
    * Aktion, die den Status des Dokuments in &quot;Adobe Sign abgebrochen&quot; ändert Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, um welchen Lebenszyklus es sich handelt. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
    * Aktion, die den Status des Dokuments in den Signierstatus &quot;In Adobe&quot; ändert. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, um welchen Lebenszyklus es sich handelt. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
    * Aktion, die die Webaktion &quot;Adobe Sign&quot; aufruft
    * Aktion, die die Webaktion &quot;Adobe Sign abbrechen&quot; aufruft. Dieser Status muss über eine Sicherheit verfügen, die der Adobe Sign-Administratorrolle Folgendes ermöglicht: Dokument anzeigen, Inhalt anzeigen, Felder bearbeiten, Beziehungen bearbeiten, Quelle herunterladen, Darstellung verwalten und Status ändern.
 
-      ![Abbildung des Lebenszyklusstatus 3](images/lifecycle-state3.png)
+   ![Abbildung des Lebenszyklusstatus 3](images/lifecycle-state3.png)
 
-* **Signieren in Adobe**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument in Adobe Sign hochgeladen wurde und die zugehörige Vereinbarung bereits an die Teilnehmer gesendet wurde (OUT_FOR_SIGNATURE- oder OUT_FOR_APPROVAL-Status). Dies ist ein erforderlicher Status. Für diesen Status müssen die folgenden fünf Benutzeraktionen definiert sein:
+   * **Signieren in Adobe**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument in Adobe Sign hochgeladen wurde und die zugehörige Vereinbarung bereits an die Teilnehmer gesendet wurde (OUT_FOR_SIGNATURE- oder OUT_FOR_APPROVAL-Status). Dies ist ein erforderlicher Status. Für diesen Status müssen die folgenden fünf Benutzeraktionen definiert sein:
 
    * Aktion, die den Status des Dokuments in &quot;Adobe Sign abgebrochen&quot; ändert Der Zielstatus dieser Aktion kann unabhängig von den Kundenanforderungen sein und kann für verschiedene Typen unterschiedlich sein. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, um welchen Lebenszyklus es sich handelt. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
    * Aktion, die den Status des Dokuments in den Status Adobe Sign abgelehnt ändert. Der Zielstatus dieser Aktion kann unabhängig von den Kundenanforderungen sein und kann für verschiedene Typen unterschiedlich sein. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, um welchen Lebenszyklus es sich handelt. Bei Bedarf können die Kriterien für diese Aktion auf &quot;Adobe Sign-Benutzeraktionen zulassen gleich Ja&quot; festgelegt werden.
@@ -328,14 +331,14 @@ Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktuali
    * Aktion, die die Webaktion aufruft *Adobe Sign*.
    * Aktion, die Webaktion aufruft *Adobe Sign kündigen*. Dieser Status muss über eine Sicherheit verfügen, die der Adobe Sign-Administratorrolle Folgendes ermöglicht: Dokument anzeigen, Inhalt anzeigen, Felder bearbeiten, Beziehungen bearbeiten, Quelle herunterladen, Darstellung verwalten und Status ändern.
 
-      ![Abbildung des Lebenszyklusstatus 4](images/lifecycle-state4.png)
+   ![Abbildung des Lebenszyklusstatus 4](images/lifecycle-state4.png)
 
-* **Adobe unterzeichnet (genehmigt)**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument in Adobe Sign hochgeladen wurde und die zugehörige Vereinbarung abgeschlossen ist (Status SIGNIERT oder GENEHMIGT). Dies ist ein erforderlicher Status und kann ein vorhandener Lebenszyklusstatus wie Genehmigt sein.
-Dieser Status erfordert keine Benutzeraktionen. Dieser Status muss über Sicherheitsfunktionen verfügen, die es der Adobe Sign-Administratorrolle ermöglichen, Folgendes zu tun: Dokumente anzeigen, Inhalte anzeigen und Felder bearbeiten.
+   * **Adobe unterzeichnet (genehmigt)**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument in Adobe Sign hochgeladen wurde und die zugehörige Vereinbarung abgeschlossen ist (Status SIGNIERT oder GENEHMIGT). Dies ist ein erforderlicher Status und kann ein vorhandener Lebenszyklusstatus wie Genehmigt sein.
+Dieser Status erfordert keine Benutzeraktionen. Sie muss über Sicherheitsfunktionen verfügen, die es der Adobe Sign-Administratorrolle ermöglichen, Dokumente anzeigen, Inhalte anzeigen und Felder bearbeiten.
 
-Das folgende Diagramm zeigt die Zuordnungen zwischen Adobe Sign-Vereinbarungs- und Vault-Dokumentstatus, wobei der Status &quot;Vor Signatur der Adobe&quot; &quot;Entwurf&quot; ist.
+   Das folgende Diagramm zeigt die Zuordnungen zwischen Adobe Sign-Vereinbarungs- und Vault-Dokumentstatus, wobei der Status &quot;Vor Signatur der Adobe&quot; &quot;Entwurf&quot; ist.
 
-![Abbildung der Adobe Sign Vault-Karten](images/sign-vault-mappings.png)
+   ![Abbildung der Adobe Sign Vault-Karten](images/sign-vault-mappings.png)
 
 ### Schritt 11. Hinzufügen der Adobe Sign-Bühne zum allgemeinen Lebenszyklus in Lifecycle-Bühnengruppen
 
