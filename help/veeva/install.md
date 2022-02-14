@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c3ad36ec887230d746d8d2084127155615f1d0b9
+source-git-commit: db0d9022e520e9db39254e78b66aab8b913f353a
 workflow-type: tm+mt
-source-wordcount: '3145'
+source-wordcount: '3169'
 ht-degree: 3%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 3%
 
 ## Übersicht {#overview}
 
-In diesem Dokument wird erläutert, wie Sie die Integration von Adobe Sign mit [!DNL Veeva Vault] Plattform. [!DNL Veeva Vault] ist eine Enterprise Content Management (ECM)-Plattform für Life Sciences. Ein &quot;Tresor&quot; ist ein Content- und Daten-Repository mit typischer Verwendung für behördliche Anmeldungen, Forschungsberichte, Finanzhilfeanträge, allgemeine Vertragsabschlüsse und mehr. Ein einzelnes Unternehmen kann mehrere Tresore haben, die separat verwaltet werden müssen.
+This document explains how to establish integration of Adobe Sign with [!DNL Veeva Vault] platform. [!DNL Veeva Vault] ist eine Enterprise Content Management (ECM)-Plattform für Life Sciences. Ein &quot;Tresor&quot; ist ein Content- und Daten-Repository mit typischer Verwendung für behördliche Anmeldungen, Forschungsberichte, Finanzhilfeanträge, allgemeine Vertragsabschlüsse und mehr. Ein einzelnes Unternehmen kann mehrere Tresore haben, die separat verwaltet werden müssen.
 
 Die allgemeinen Schritte zum Abschließen der Integration sind:
 
@@ -34,6 +34,7 @@ Die allgemeinen Schritte zum Abschließen der Integration sind:
 * Erstellen Sie Dokumentfelder und Ausgabedarstellungen.
 * Konfigurieren Sie Webaktionen und aktualisieren Sie den Dokumentenlebenszyklus.
 * Erstellen Sie die Einrichtung des Dokumenttyps für Benutzer und Benutzerrollen.
+* Verbinden Sie Veeva Vault mit Adobe Sign über Middleware.
 
 >[!NOTE]
 >
@@ -59,7 +60,7 @@ So konfigurieren Sie Adobe Sign für [!DNL Vault]eine neue Gruppe mit dem Namen 
 * Seitenlayout des Unterzeichnerobjekts
 * Seitenlayout des Process Locker-Objekts
 * Adobe Sign-Darstellungstyp
-* Signatur für gemeinsam genutzte Felder__c , allow_adobe_sign_user_actions__c
+* Shared field signature__c , allow_adobe_sign_user_actions__c
 * Adobe Sign Web Action
 * Adobe Sign Web-Aktion abbrechen
 * Berechtigungssatz für Adobe Sign-Administratoraktionen
@@ -77,9 +78,9 @@ Das Signaturobjekt wird erstellt, um Vereinbarungsinformationen zu speichern. Ei
 | --- | --- | ---| --- | 
 | external_id__c | Vereinbarungs-ID | Zeichenfolge (100) | Die eindeutige Vereinbarungs-ID der Adobe Sign |
 | file_hash__c | Datei-Hash | Zeichenfolge (50) | Enthält die md5-Prüfsumme der Datei, die an Adobe Sign gesendet wurde. |
-| name__v | Name | Zeichenfolge (128) | Der Name der Vereinbarung ist enthalten. |
-| sender__c | Absender | Objekt (Benutzer) | Enthält den Verweis auf den Vault-Benutzer, der die Vereinbarung erstellt hat. |
-| signature_status__c | Signaturstatus | Zeichenfolge (75) | Der Status der Vereinbarung in Adobe Sign |
+| name__v | Name | String (128) | Der Name der Vereinbarung ist enthalten. |
+| sender__c | Absender | Objekt (Benutzer) | Holds the reference to the Vault user that has created the agreement |
+| signature_status__c | Signaturstatus | Zeichenfolge (75) | Holds the agreement’s status in Adobe Sign |
 | signature_type__c | Signaturtyp | Zeichenfolge (20) | Der Signaturtyp der Vereinbarung in Adobe Sign (WRITTEN oder ESIGN) |
 | start_date__c | Anfangsdatum | Datum/Uhrzeit | Datum, an dem die Vereinbarung zur Signatur gesendet wurde |
 | cancel_date__c | Kündigungsdatum | Datum/Uhrzeit | Enthält das Datum, an dem die Vereinbarung storniert wurde. |
@@ -102,8 +103,8 @@ Unterzeichnerobjekt wird erstellt, um Informationen zu den Teilnehmern einer Ver
 | order__c | Auftrag | Zahl | Enthält die Bestellnummer des Adobe Sign-Vereinbarungsteilnehmers. |
 | role__c | Rolle | Zeichenfolge (30) | Rolle des Adobe Sign-Vereinbarungsteilnehmers |
 | signature__c | Signatur | Objekt (Signatur) | Enthält den Verweis auf den übergeordneten Signaturdatensatz. |
-| signature_status__c | Signaturstatus | Zeichenfolge (100) | Status des Teilnehmers der Adobe Sign-Vereinbarung |
-| user__c | Benutzer | Objekt (Benutzer) | Enthält den Verweis auf den Benutzerdatensatz des Unterzeichners, wenn der Teilnehmer ein Vault-Benutzer ist. |
+| signature_status__c | Signaturstatus | Zeichenfolge (100) | Holds Adobe Sign agreement participant’s status |
+| user__c | Benutzer | Object (User) | Enthält den Verweis auf den Benutzerdatensatz des Unterzeichners, wenn der Teilnehmer ein Vault-Benutzer ist. |
 
 ![Bild der Unterzeichnerdetails](images/signatory-object-details.png)
 
@@ -233,13 +234,13 @@ Für die Adobe Sign- und Vault-Integration müssen Sie die folgenden zwei Webakt
 
 * **Adobe Sign erstellen**: Der Adobe Sign-Vertrag wird erstellt oder angezeigt.
 
-   Typ: Dokumentziel: Anzeige innerhalb der Vault-URL: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+   Typ: Dokumentziel: Anzeige innerhalb der Vault-Anmeldedaten: Anmeldeinformationen nach der Sitzung über die URL nach der Nachricht aktivieren: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
    ![Bild von Adobe Sign erstellen](images/create-adobe-sign.png)
 
 * **Adobe Sign kündigen**: Mit dieser Option wird eine in Adobe Sign vorhandene Vereinbarung abgebrochen und der Status eines Dokuments auf den ursprünglichen zurückgesetzt.
 
-   Typ: Dokumentziel: Anzeige innerhalb der Vault-URL: : <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+   Typ: Dokumentziel: Anzeige innerhalb der Vault-Anmeldedaten: Anmeldeinformationen nach der Sitzung über die URL nach der Nachricht aktivieren: : <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
    ![Bild der Kündigung von Adobe Sign](images/cancel-adobe-sign.png)
 
@@ -258,7 +259,7 @@ Der Lebenszyklus von Adobe Sign-Vereinbarungen hat folgende Status:
 
 Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktualisieren:
 
-1. Lebenszyklusrolle hinzufügen. Die Adobe Sign-Admin-Anwendungsrolle muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature qualifiziert sind, wie unten dargestellt.
+1. Lebenszyklusrolle hinzufügen. Die Adobe Sign-Admin-Anwendungsrolle muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature berechtigt sind, wie unten dargestellt.
 
    ![Bild von Lebenszyklus-Administratorrollen](images/document-lifecycle-admin-role.png)
 
