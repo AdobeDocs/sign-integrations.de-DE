@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: db0d9022e520e9db39254e78b66aab8b913f353a
+source-git-commit: 535c4510e876c708679d7f6a800206264a9876e2
 workflow-type: tm+mt
-source-wordcount: '3169'
+source-wordcount: '3428'
 ht-degree: 3%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 3%
 
 ## Übersicht {#overview}
 
-This document explains how to establish integration of Adobe Sign with [!DNL Veeva Vault] platform. [!DNL Veeva Vault] ist eine Enterprise Content Management (ECM)-Plattform für Life Sciences. Ein &quot;Tresor&quot; ist ein Content- und Daten-Repository mit typischer Verwendung für behördliche Anmeldungen, Forschungsberichte, Finanzhilfeanträge, allgemeine Vertragsabschlüsse und mehr. Ein einzelnes Unternehmen kann mehrere Tresore haben, die separat verwaltet werden müssen.
+In diesem Dokument wird erläutert, wie Sie die Integration von Adobe Sign mit [!DNL Veeva Vault] Plattform. [!DNL Veeva Vault] ist eine Enterprise Content Management (ECM)-Plattform für Life Sciences. Ein &quot;Tresor&quot; ist ein Content- und Daten-Repository mit typischer Verwendung für behördliche Anmeldungen, Forschungsberichte, Finanzhilfeanträge, allgemeine Vertragsabschlüsse und mehr. Ein einzelnes Unternehmen kann mehrere Tresore haben, die separat verwaltet werden müssen.
 
 Die allgemeinen Schritte zum Abschließen der Integration sind:
 
@@ -60,7 +60,7 @@ So konfigurieren Sie Adobe Sign für [!DNL Vault]eine neue Gruppe mit dem Namen 
 * Seitenlayout des Unterzeichnerobjekts
 * Seitenlayout des Process Locker-Objekts
 * Adobe Sign-Darstellungstyp
-* Shared field signature__c , allow_adobe_sign_user_actions__c
+* Signatur für gemeinsam genutzte Felder__c , allow_adobe_sign_user_actions__c
 * Adobe Sign Web Action
 * Adobe Sign Web-Aktion abbrechen
 * Berechtigungssatz für Adobe Sign-Administratoraktionen
@@ -78,9 +78,9 @@ Das Signaturobjekt wird erstellt, um Vereinbarungsinformationen zu speichern. Ei
 | --- | --- | ---| --- | 
 | external_id__c | Vereinbarungs-ID | Zeichenfolge (100) | Die eindeutige Vereinbarungs-ID der Adobe Sign |
 | file_hash__c | Datei-Hash | Zeichenfolge (50) | Enthält die md5-Prüfsumme der Datei, die an Adobe Sign gesendet wurde. |
-| name__v | Name | String (128) | Der Name der Vereinbarung ist enthalten. |
-| sender__c | Absender | Objekt (Benutzer) | Holds the reference to the Vault user that has created the agreement |
-| signature_status__c | Signaturstatus | Zeichenfolge (75) | Holds the agreement’s status in Adobe Sign |
+| name__v | Name | Zeichenfolge (128) | Der Name der Vereinbarung ist enthalten. |
+| sender__c | Absender | Objekt (Benutzer) | Enthält den Verweis auf den Vault-Benutzer, der die Vereinbarung erstellt hat. |
+| signature_status__c | Signaturstatus | Zeichenfolge (75) | Der Status der Vereinbarung in Adobe Sign |
 | signature_type__c | Signaturtyp | Zeichenfolge (20) | Der Signaturtyp der Vereinbarung in Adobe Sign (WRITTEN oder ESIGN) |
 | start_date__c | Anfangsdatum | Datum/Uhrzeit | Datum, an dem die Vereinbarung zur Signatur gesendet wurde |
 | cancel_date__c | Kündigungsdatum | Datum/Uhrzeit | Enthält das Datum, an dem die Vereinbarung storniert wurde. |
@@ -103,8 +103,8 @@ Unterzeichnerobjekt wird erstellt, um Informationen zu den Teilnehmern einer Ver
 | order__c | Auftrag | Zahl | Enthält die Bestellnummer des Adobe Sign-Vereinbarungsteilnehmers. |
 | role__c | Rolle | Zeichenfolge (30) | Rolle des Adobe Sign-Vereinbarungsteilnehmers |
 | signature__c | Signatur | Objekt (Signatur) | Enthält den Verweis auf den übergeordneten Signaturdatensatz. |
-| signature_status__c | Signaturstatus | Zeichenfolge (100) | Holds Adobe Sign agreement participant’s status |
-| user__c | Benutzer | Object (User) | Enthält den Verweis auf den Benutzerdatensatz des Unterzeichners, wenn der Teilnehmer ein Vault-Benutzer ist. |
+| signature_status__c | Signaturstatus | Zeichenfolge (100) | Status des Teilnehmers der Adobe Sign-Vereinbarung |
+| user__c | Benutzer | Objekt (Benutzer) | Enthält den Verweis auf den Benutzerdatensatz des Unterzeichners, wenn der Teilnehmer ein Vault-Benutzer ist. |
 
 ![Bild der Unterzeichnerdetails](images/signatory-object-details.png)
 
@@ -125,13 +125,51 @@ Das Signaturereignisobjekt wird erstellt, um die ereignisbezogenen Informationen
 | participant_role__c | Rolle des Teilnehmers | Zeichenfolge | Enthält die Rolle des Adobe Sign-Teilnehmers |
 | signature__c | Signatur | Objekt (Signatur) | Enthält den Verweis auf den übergeordneten Signaturdatensatz. |
 
-![Bild mit Details zum Signaturereignis](images/signature-event-object-details.png)
+![Bild](images/signature-event-object-details.png)
 
 #### Process Locker-Objekt {#process-locker}
 
 Ein Process Locker -Objekt wird erstellt, um den Adobe Sign-Integrationsprozess zu sperren. Benutzerdefinierte Felder sind nicht erforderlich.
 
 ![Bild mit Details zum Signaturereignis](images/process-locker-details.png)
+
+Bei den Objekten Signature, Signatory, Signature Event und Process Locker, die als Teil des Bereitstellungspakets bereitgestellt werden, ist die Eigenschaft &#39;Änderungen der Überwachungsdaten für dieses Objekt&#39; standardmäßig aktiviert.
+
+**Hinweis:** Um Änderungen an den Vault-Erfassungsobjektdatensätzen in Überwachungsprotokolle aufzunehmen, aktivieren Sie die Einstellung Änderungen an den Audit-Daten. Diese Einstellung ist standardmäßig deaktiviert. Sobald Sie diese Einstellung aktiviert und Datensätze erstellt haben, können Sie sie nicht mehr deaktivieren. Wenn diese Einstellung deaktiviert ist und Datensätze vorhanden sind, kann nur ein Vault-Eigentümer die Einstellung aktualisieren.
+
+#### **Teilnehmer und Verlauf für das Signaturobjekt anzeigen** {#display-participants-history}
+
+Das Signature -Objekt, das als Teil des Bereitstellungspakets bereitgestellt wird, wird mit dem [Signaturdetailseitenlayout](https://vvtechpartner-adobe-rim.veevavault.com/ui/#admin/content_setup/object_schema/pagelayout?t=signature__c&amp;d=signature_detail_page_layout__c). Das Seitenlayout enthält Abschnitte für Teilnehmer und Verlauf.
+
+* Die *Teilnehmer* &quot; enthält den Abschnitt &quot;Zugehörige Objekte&quot;, der wie in der Abbildung unten gezeigt konfiguriert ist.
+
+   ![Bild](images/edit-related-objects.png)
+
+* Sie können die Spalten bearbeiten, die für die Teilnehmer angezeigt werden sollen, wie unten gezeigt.
+
+   ![Bild](images/set-columns-to-display.png)
+
+* Die *Verlauf* &quot; enthält den Abschnitt &quot;Zugehörige Objekte&quot;, der wie in der Abbildung unten gezeigt konfiguriert ist.
+
+   ![Bild](images/edit-related-object-in-history.png)
+
+* Sie können die Spalten, die für den Verlauf angezeigt werden sollen, wie unten gezeigt, bearbeiten.
+
+   ![Bild](images/select-columns-to-display.png)
+
+#### **Teilnehmer- und Prüfverlauf für das Adobe Sign Dokument anzeigen** {#view-participants-audit-history}
+
+* Um Teilnehmer und den Prüfverlauf für das Adobe Sign Dokument anzuzeigen, wählen Sie den Link im Abschnitt &quot;Signatur der Adobe&quot; des Dokuments aus.
+
+   ![Bild](images/view-participants-audit-history.png)
+
+* Auf der daraufhin geöffneten Seite werden die Teilnehmer und der Verlauf für das Adobe Sign Dokument angezeigt (siehe unten).
+
+   ![Bild](images/participants-and-history.png)
+
+* Sehen Sie sich den Audit-Verlauf für Signatur wie unten gezeigt an.
+
+   ![Bild](images/audit-trail.png)
 
 ### Schritt 3. Einrichten von Sicherheitsprofilen {#security-profiles}
 
@@ -259,7 +297,7 @@ Der Lebenszyklus von Adobe Sign-Vereinbarungen hat folgende Status:
 
 Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktualisieren:
 
-1. Lebenszyklusrolle hinzufügen. Die Adobe Sign-Admin-Anwendungsrolle muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature berechtigt sind, wie unten dargestellt.
+1. Lebenszyklusrolle hinzufügen. Die Adobe Sign-Admin-Anwendungsrolle muss in allen Lebenszyklen hinzugefügt werden, die von Dokumenten verwendet werden, die für die Adobe Signature qualifiziert sind, wie unten dargestellt.
 
    ![Bild von Lebenszyklus-Administratorrollen](images/document-lifecycle-admin-role.png)
 
