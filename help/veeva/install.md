@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 535c4510e876c708679d7f6a800206264a9876e2
+source-git-commit: 928bbadab28f041de2d8bc17ad8383f61033a6c0
 workflow-type: tm+mt
-source-wordcount: '3428'
+source-wordcount: '3431'
 ht-degree: 3%
 
 ---
@@ -135,7 +135,7 @@ Ein Process Locker -Objekt wird erstellt, um den Adobe Sign-Integrationsprozess 
 
 Bei den Objekten Signature, Signatory, Signature Event und Process Locker, die als Teil des Bereitstellungspakets bereitgestellt werden, ist die Eigenschaft &#39;Änderungen der Überwachungsdaten für dieses Objekt&#39; standardmäßig aktiviert.
 
-**Hinweis:** Um Änderungen an den Vault-Erfassungsobjektdatensätzen in Überwachungsprotokolle aufzunehmen, aktivieren Sie die Einstellung Änderungen an den Audit-Daten. Diese Einstellung ist standardmäßig deaktiviert. Sobald Sie diese Einstellung aktiviert und Datensätze erstellt haben, können Sie sie nicht mehr deaktivieren. Wenn diese Einstellung deaktiviert ist und Datensätze vorhanden sind, kann nur ein Vault-Eigentümer die Einstellung aktualisieren.
+**Hinweis:** Sie können Änderungen an den Vault-Objekt-Datensatzdaten in den Überwachungsprotokollen erfassen lassen, indem Sie die Einstellung Änderungen an den Überwachungsdaten aktivieren. Diese Einstellung ist standardmäßig deaktiviert. Sobald Sie diese Einstellung aktiviert und Datensätze erstellt haben, können Sie sie nicht mehr deaktivieren. Wenn diese Einstellung deaktiviert ist und Datensätze vorhanden sind, kann nur ein Vault-Eigentümer die Einstellung aktualisieren.
 
 #### **Teilnehmer und Verlauf für das Signaturobjekt anzeigen** {#display-participants-history}
 
@@ -167,7 +167,7 @@ Das Signature -Objekt, das als Teil des Bereitstellungspakets bereitgestellt wir
 
    ![Bild](images/participants-and-history.png)
 
-* Sehen Sie sich den Audit-Verlauf für Signatur wie unten gezeigt an.
+* Sehen Sie sich das Audit-Protokoll zur Signatur wie unten gezeigt an.
 
    ![Bild](images/audit-trail.png)
 
