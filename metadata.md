@@ -1,10 +1,10 @@
 ---
 cloud: Document Cloud
 type: Documentation
-solution: Document Cloud, Adobe Sign
+solution: Document Cloud, Acrobat Sign, Adobe Sign
 mini-toc-levels: 2
-git-repo: https://git.corp.adobe.com/AdobeDocs/sign-integrations.de-DE
-source-git-commit: 1d3fe474a7fd9d6f50b7355753451e60dd3c601a
+git-repo: https://github.com/AdobeDocs/sign-integrations.de-DE
+source-git-commit: f315aa6b1230b1d4357b2fe9ea030310d8cad230
 workflow-type: tm+mt
 source-wordcount: '130'
 ht-degree: 0%
@@ -12,23 +12,23 @@ ht-degree: 0%
 ---
 
 
-# Metadaten für die interne Verwendung
+# Metadaten zur internen Verwendung
 
-Die Datei &quot;metadata.md&quot;enthält Metadaten auf Repo-Ebene, die an die Dateien &quot;TOC.md&quot;des Benutzerhandbuchs im Bericht übergeben werden. Wenn Sie den Inhalt &quot;metadata.md&quot;für ein Benutzerhandbuch ändern möchten, tun Sie dies in einer beliebigen Datei &quot;TOC.md&quot;.
+Die Datei metadata.md enthält Metadaten auf Repo-Ebene, die an die TOC.md-Benutzerhandbuchdateien im Repo weitergeleitet werden. Wenn Sie den Inhalt von metadata.md für ein Benutzerhandbuch ändern möchten, tun Sie dies in einer beliebigen TOC.md-Datei.
 
-| Metadaten | was sie tut |
+| Metadaten | Zweck |
 |--- |--- |
 | solution-title | Wird in der Artikelüberschrift als Link verwendet |
-| solution-hub-url | Öffnet die Hilpx-Hub-Seite |
-| Solution-Symbol | Zeigt neben dem Projektmappentitel das Lösungssymbol an. Noch nicht implementiert |
-| getting-started-url | Link zur Hilfeseite für den Einstieg |
-| tutorials-url | Link zu Video-Tutorials - entweder Helpx-Tutorials oder KT-Tutorials |
-| Mini-Inhaltsverzeichnisebenen | Legt die Anzahl der Überschriftsebenen fest, die in der rechten Leiste angezeigt werden. Standardwert ist 2 |
-| git-repo | Gibt den Speicherort des Masterrepos für die interne Verwendung an |
+| solution-hub-url | Öffnet die Helpx-Hub-Seite |
+| solution-icon | Zeigt neben dem Lösungstitel das Lösungssymbol an. Noch nicht implementiert |
+| getting-started-url | Link zur helpx-Seite &quot;Erste Schritte&quot; |
+| tutorials-url | Link zu Video-Tutorials - entweder helpx-Tutorials oder KT-Tutorials |
+| mini-toc-levels | Legt die Anzahl der Überschriftsebenen fest, die in der rechten Leiste angezeigt werden. Der Standardwert ist 2 |
+| git-repo | Gibt den Speicherort des Master-Repo zur internen Verwendung an. |
 
-In der Datei &quot;TOC.md&quot;
+In TOC.md-Datei
 
-| Metadaten | was sie tut |
+| Metadaten | Zweck |
 |--- |--- |
 | user-guide-title | Wird in der Artikelüberschrift als Link verwendet |
-| user-guide-url | Öffnet die Hilpx-Hub-Seite |
+| user-guide-url | Öffnet die Helpx-Hub-Seite |
