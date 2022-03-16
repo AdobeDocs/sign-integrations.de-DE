@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 04a3e58da81c1a034318807776077d0076eec85f
+source-git-commit: ad78f32d6c418ac9c7120899831b74bec9d5620d
 workflow-type: tm+mt
-source-wordcount: '3431'
+source-wordcount: '3503'
 ht-degree: 3%
 
 ---
@@ -60,6 +60,7 @@ So konfigurieren Sie Adobe Sign für [!DNL Vault]eine neue Gruppe mit dem Namen 
 * Seitenlayout des Unterzeichnerobjekts
 * Seitenlayout des Process Locker-Objekts
 * Adobe Sign-Darstellungstyp
+* Ursprünglicher Darstellungstyp
 * Signatur für gemeinsam genutzte Felder__c , allow_adobe_sign_user_actions__c
 * Adobe Sign Web Action
 * Adobe Sign Web-Aktion abbrechen
@@ -266,6 +267,10 @@ Der neue Ausgabedarstellungstyp namens *Adobe Sign Rendition (adobe_sign_renditi
 
 ![Bild von Darstellungsarten](images/edit-details-clinical-type.png)
 
+Der neue Ausgabedarstellungstyp namens *Original Rendition (original_rendition__c)* wird von der Vault-Integration als Name der Ausgabedarstellung verwendet, mit der die ursprüngliche sichtbare Ausgabedarstellung gespeichert werden soll, wenn das signierte Dokument als sichtbare Ausgabedarstellung importiert wird.
+
+![Bild](images/original-rendition.png)
+
 ### Schritt 9. Webaktionen aktualisieren {#web-actions}
 
 Für die Adobe Sign- und Vault-Integration müssen Sie die folgenden zwei Webaktionen erstellen und konfigurieren:
@@ -440,6 +445,10 @@ Ein Adobe Sign-Kontoadministrator muss die folgenden Schritte ausführen, um ein
    **Hinweis:** Die automatische Bereitstellung neuer Adobe Sign-Benutzer funktioniert nur, wenn sie zusätzlich zur Aktivierung auf der Adobe Sign-Kontoebene in der Adobe Sign aktiviert wurde **[!UICONTROL Sign-Benutzer automatisch bereitstellen]** für die[!DNL Veeva Vault]Adobe Sign-Integration, wie unten vom Adobe Sign-Kontoadministrator gezeigt.
 
    ![Bild](images/allow-auto-provisioning.png)
+
+1. Um zu konfigurieren, dass Adobe Sign Rendition in Veeva anstelle der Original Rendition angezeigt wird, aktivieren Sie das Kontrollkästchen **[!UICONTROL Adobe Sign-Ausgabedarstellung anzeigen]**.
+
+   ![Bild](images/edit-connection-dispplay-adobe-sign-rendition.png)
 
 1. Auswählen **[!UICONTROL Speichern]** , um Ihre neue Verbindung zu speichern.
 
