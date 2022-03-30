@@ -10,9 +10,9 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
+source-git-commit: 2c2d7ebe427166222cc62c5ab8f867275a97cce9
 workflow-type: tm+mt
-source-wordcount: '3573'
+source-wordcount: '3568'
 ht-degree: 3%
 
 ---
@@ -222,7 +222,7 @@ Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufü
 
 ### Schritt 6. Benutzerrolleneinrichtung erstellen {#create-user-role-setup}
 
-Sobald der Lebenszyklus bzw. die Lebenszyklen ordnungsgemäß konfiguriert wurde/werden, sollte das System sicherstellen, dass der Adobe Sign-Administratorbenutzer von DAC für alle Dokumente hinzugefügt wird, die für den Adobe Acrobat Sign-Prozess berechtigt sind. Dazu erstellen Sie den entsprechenden Benutzerrollen-Setup -Datensatz, der Folgendes angibt:
+Sobald die Lebenszyklen ordnungsgemäß konfiguriert sind, sollte das System sicherstellen, dass der Adobe Sign-Administratorbenutzer von DAC für alle Dokumente hinzugefügt wird, die für den Adobe Acrobat Sign-Prozess berechtigt sind. Dazu erstellen Sie den entsprechenden Benutzerrollen-Setup -Datensatz, der Folgendes angibt:
 
 * Dokumenttypgruppe als Adobe Sign-Dokument
 * Anwendungsrolle als Adobe Sign-Administratorrolle
@@ -255,7 +255,7 @@ So richten Sie Dokumentfelder ein:
 
    ![Bild](images/use-shared-fields.png)
 
-1. Beachten Sie, dass beide Felder über eine spezifische Sicherheit verfügen müssen, die es nur Mitgliedern der Adobe Sign Admin Group ermöglicht, ihre Werte zu aktualisieren.
+1. Beide Felder müssen über eine spezifische Sicherheit verfügen, die es nur Mitgliedern der Adobe Sign Admin Group ermöglicht, ihre Werte zu aktualisieren.
 
    ![Bild](images/security-overrides.png)
 

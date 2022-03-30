@@ -9,7 +9,7 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
+source-git-commit: 2c2d7ebe427166222cc62c5ab8f867275a97cce9
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -56,7 +56,7 @@ So senden Sie eine Vereinbarung mit Adobe Acrobat Sign für Veeva:
 
    ![](images/choose-document-type.png)
 
-1. Auswählen **[!UICONTROL Ok]** , um das Dialogfeld zu schließen.
+1. Um das Dialogfeld zu schließen, wählen Sie **[!UICONTROL Ok]**.
 
 1. Auswählen **[!UICONTROL Weiter]**.
 
@@ -117,7 +117,7 @@ So senden Sie eine Vereinbarung mit Adobe Acrobat Sign für Veeva:
 
 1. Sobald alle Signaturen in Adobe Acrobat Sign erfasst und abgeschlossen sind, ändert sich der Dokumentstatus in Vault in [!UICONTROL Genehmigt].
 
-1. Auswählen **[!UICONTROL Dokumentdateien]** und erweitern Sie die Option **[!UICONTROL Ausgabedarstellungen]** Abschnitt in Vault. Es wird automatisch eine neue Formatvariante mit dem Namen &quot;Adobe Sign-Formatvariante&quot; erstellt, sobald sich das Dokument im Status &quot;Genehmigt&quot; befindet.
+1. Auswählen **[!UICONTROL Dokumentdateien]** und erweitern Sie die Option **[!UICONTROL Ausgabedarstellungen]** Abschnitt in Vault. Es wird automatisch eine Formatvariante mit dem Namen &quot;Adobe Sign-Formatvariante&quot; erstellt, sobald sich das Dokument im Status &quot;Genehmigt&quot; befindet.
 
    ![](images/document-files.png)
 
