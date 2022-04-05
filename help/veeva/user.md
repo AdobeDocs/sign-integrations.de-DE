@@ -9,7 +9,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
+source-git-commit: 076c575d179f576366c1d9a76be0a582154574b1
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -86,7 +86,7 @@ So senden Sie eine Vereinbarung mit Adobe Acrobat Sign für Veeva:
 
    ![](images/select-adobe-sign.png)
 
-1. Wenn die Funktion UMG (Benutzer in mehreren Gruppen) im Adobe Acrobat Sign-Konto aktiviert ist und der Absender zu mehreren Gruppen gehört, wird ein Dialogfeld wie unten gezeigt angezeigt. Wählen Sie im Dialogfeld die Gruppe aus und wählen Sie dann **[!UICONTROL Ok]**.
+1. Wenn die Funktion UMG (Benutzer in mehreren Gruppen) im Adobe Acrobat Sign-Konto aktiviert ist und der Absender zu mehreren Gruppen gehört, wird ein Dialogfeld wie unten gezeigt angezeigt. Wählen Sie im Dialogfeld die Gruppe aus und wählen Sie dann **[!UICONTROL Weiter]**.
 
    ![](images/umg-dialog.png)
 
