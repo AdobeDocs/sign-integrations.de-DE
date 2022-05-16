@@ -8,10 +8,10 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: c54f848d7832e831dc10c8069ac572226f0b31e8
+source-git-commit: 581b336b4a3610cfe3fd0d92f2a4eebe55b89b27
 workflow-type: tm+mt
-source-wordcount: '4873'
-ht-degree: 33%
+source-wordcount: '4870'
+ht-degree: 34%
 
 ---
 
@@ -66,7 +66,7 @@ Siehe [Adobe Sign-Vereinbarung erstellen](#createagreement) für weitere Informa
 
 1. Wenn Sie bereits Adobe Sign-Kundenkonto haben, führen Sie die folgenden Schritte aus:  [Konfigurieren von OAuth nach der Installation oder dem Upgrade](#oauth).
 
-   Wenn du kein Adobe Sign-Konto hast, kannst du [Für Enterprise-Testversion anmelden](https://esign.adobe.com/adobe-sign-DNL), um das System zu testen. Führen Sie die Online-Registrierungsschritte aus, um Ihr Adobe Sign-Konto zu aktivieren.
+   Wenn Sie kein Adobe Sign-Konto haben, können Sie sich [für ein Enterprise-Probeabo anmelden](https://esign.adobe.com/adobe-sign-netsuite-trial-registration.html) und das System testen. Führen Sie die Online-Registrierungsschritte aus, um Ihr Adobe Sign-Konto zu aktivieren.
 
 ## Konfigurieren von OAuth nach der Installation oder dem Upgrade {#oauth}
 
@@ -111,19 +111,19 @@ Die [!DNL NetSuite] Administrator, der OAuth konfiguriert, muss auch über einen
    >Bei der Konfiguration von OAuth in Ihrem Sandbox-Konto wird möglicherweise der Fehler &quot;Die Comp-ID des Kunden konnte nicht ermittelt werden&quot; angezeigt, wenn die Autorisierung abgeschlossen ist.
    >
    >
-   >Um fortzufahren, müssen Sie den Abschnitt der Kontodomäne der URL (System.[!DNL NetSuite].com) in Ihrem Browser, um auf die [!DNL NetSuite] Sandbox wie folgt:
+   >Um fortzufahren, müssen Sie den Abschnitt der Kontodomäne der URL (system.netsuite.com) in Ihrem Browser so ändern, dass er auf die [!DNL NetSuite] Sandbox wie folgt:
    >
    >
    >Ändern:
    >
    >
-   >system.[!DNL NetSuite].com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
+   >system.netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
    >
    >
    >An:
    >
    >
-   >System.**sandbox.** netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
+   >system.**sandbox.** netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
 
 ## Paket aktualisieren (vorhandene Benutzer)
 
@@ -581,7 +581,7 @@ Deinstallieren Sie das Paket NICHT, wenn Ihre nicht unterzeichneten Vereinbarung
 
 ## Fehlerbehebung
 
-### Ermitteln des Aktualisierungsfortschritts
+### Ermitteln des Aktualisierungsfortschritts  {#determineprogress}
 
 Wenn das Update länger als erwartet dauert, können Sie auf der Unterregisterkarte „Ausführungsprotokoll“ für das Skript „Adobe Sign Bundle Installation“ den Fortschritt des Updates ermitteln, indem Sie wie folgt vorgehen:
 
