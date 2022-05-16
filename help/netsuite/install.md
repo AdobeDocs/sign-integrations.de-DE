@@ -8,7 +8,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: 581b336b4a3610cfe3fd0d92f2a4eebe55b89b27
+source-git-commit: 568d001a05bd0e642036b4a73067689e987c02ba
 workflow-type: tm+mt
 source-wordcount: '4870'
 ht-degree: 34%
@@ -581,7 +581,7 @@ Deinstallieren Sie das Paket NICHT, wenn Ihre nicht unterzeichneten Vereinbarung
 
 ## Fehlerbehebung
 
-### Ermitteln des Aktualisierungsfortschritts  {#determineprogress}
+### Ermitteln des Aktualisierungsfortschritts {#determineprogress}
 
 Wenn das Update länger als erwartet dauert, können Sie auf der Unterregisterkarte „Ausführungsprotokoll“ für das Skript „Adobe Sign Bundle Installation“ den Fortschritt des Updates ermitteln, indem Sie wie folgt vorgehen:
 
