@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 0577f30c35a348174bed27c6eb309fce43f03eca
+source-git-commit: c60fd19fa52fb203fd19da69d58792ef6fb88eec
 workflow-type: tm+mt
-source-wordcount: '3909'
+source-wordcount: '3931'
 ht-degree: 3%
 
 ---
@@ -102,8 +102,8 @@ Unterzeichnerobjekt wird erstellt, um Informationen zu den Teilnehmern einer Ver
 
 | Feld | Bezeichnung | Typ | Beschreibung |
 |:---|:---|:---|:------- | 
-| email__c | E-Mail | Zeichenfolge (120) | Enthält die eindeutige Vereinbarungs-ID von Adobe Acrobat Sign. |
-| external_id__c | Teilnehmer-ID | Zeichenfolge (80) | Enthält die eindeutige Teilnehmerkennung von Adobe Acrobat Sign. |
+| email__c | E-Mail | Zeichenfolge (120) | Die eindeutige Vereinbarungs-ID der Adobe Acrobat Sign |
+| external_id__c | Teilnehmer-ID | Zeichenfolge (80) | Enthält die Kennung des eindeutigen Adobe Acrobat Sign-Teilnehmers. |
 | name__v | Name | Zeichenfolge (128) | Name des Adobe Acrobat Sign-Teilnehmers |
 | order__c | Auftrag | Zahl | Enthält die Bestellnummer des Adobe Acrobat Sign-Vereinbarungsteilnehmers. |
 | role__c | Rolle | Zeichenfolge (30) | Rolle des Adobe Acrobat Sign-Vereinbarungsteilnehmers |
@@ -122,7 +122,7 @@ Signaturereignisobjektfelder
 | Feld | Bezeichnung | Typ | Beschreibung |
 |:---|:---|:---|:-------- | 
 | acting_user_email__c | Aktive Benutzer-E-Mail | Zeichenfolge | Enthält die E-Mail-Adresse des Adobe Acrobat Sign-Benutzers, der die Aktion ausgeführt hat, die zum Generieren des Ereignisses geführt hat |
-| acting_user_name__c | Amtierender Benutzername | Zeichenfolge | Enthält den Namen des Adobe Acrobat Sign-Benutzers, der die Aktion ausgeführt hat, durch die das Ereignis generiert wurde. |
+| acting_user_name__c | Amtierender Benutzername | Zeichenfolge | Enthält den Namen des Adobe Acrobat Sign-Benutzers, der die Aktion ausgeführt hat, die zum Generieren des Ereignisses geführt hat. |
 | description__c | Beschreibung | Zeichenfolge | Enthält die Beschreibung des Adobe Acrobat Sign-Ereignisses. |
 | event_date__c | Ereignisdatum | Datum/Uhrzeit | Datum und Uhrzeit der Adobe Acrobat Sign-Veranstaltung |
 | event_type__c | Ereignistyp | Zeichenfolge | Enthält den Typ des Adobe Acrobat Sign-Ereignisses |
@@ -185,13 +185,13 @@ Das Signature -Objekt, das als Teil des Bereitstellungspakets bereitgestellt wir
 
    ![Bild](images/select-columns-to-display.png)
 
-#### **Teilnehmer- und Prüfverlauf für das Adobe Acrobat Sign-Dokument anzeigen** {#view-participants-audit-history}
+#### **Teilnehmer- und Prüfverlauf für das Adobe Acrobat Sign Dokument anzeigen** {#view-participants-audit-history}
 
-* Um Teilnehmer und den Prüfverlauf für das Adobe Acrobat Sign-Dokument anzuzeigen, wählen Sie den Link im Abschnitt &quot;Signatur der Adobe&quot; des Dokuments aus.
+* Um Teilnehmer und den Prüfverlauf für das Adobe Acrobat Sign Dokument anzuzeigen, wählen Sie den Link im Abschnitt &quot;Signatur der Adobe&quot; des Dokuments aus.
 
    ![Bild](images/view-participants-audit-history.png)
 
-* Auf der daraufhin geöffneten Seite werden die Teilnehmer und der Verlauf für das Adobe Acrobat Sign Dokument angezeigt (siehe unten).
+* Auf der daraufhin geöffneten Seite werden die Teilnehmer und der Verlauf für das Adobe Acrobat Sign-Dokument angezeigt (siehe unten).
 
    ![Bild](images/participants-and-history.png)
 
@@ -235,7 +235,7 @@ Wenn Sie das Adobe Acrobat Sign-Paket bereitstellen, wird ein Dokumenttyp-Gruppe
 
 ![Bild von Dokumenttypgruppen](images/document-type-groups.png)
 
-Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufügen, die für den Adobe Acrobat Sign-Prozess infrage kommen. Da die Dokumenttypgruppeneigenschaft nicht von Typ zu Untertyp oder von Untertyp zu Klassifizierungsebene vererbt wird, muss sie für die Klassifizierung jedes Dokuments festgelegt werden, das für Adobe Acrobat Sign in Frage kommt.
+Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufügen, die für den Adobe Acrobat Sign-Prozess infrage kommen. Da die Eigenschaft Dokumenttypgruppe nicht von Typ zu Untertyp oder von Untertyp zu Klassifizierungsebene vererbt wird, muss sie für die Klassifizierung jedes Dokuments festgelegt werden, das für Adobe Acrobat Sign in Frage kommt.
 
 ![Bild eines Dokuments mit Bearbeitungsdetails](images/document-edit-details.png)
 
@@ -247,7 +247,7 @@ Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufü
 
 ### Schritt 6. Benutzerrolleneinrichtung erstellen {#create-user-role-setup}
 
-Sobald die Lebenszyklen ordnungsgemäß konfiguriert sind, sollte das System sicherstellen, dass der Adobe Sign-Administratorbenutzer von DAC für alle Dokumente hinzugefügt wird, die für den Adobe Acrobat Sign-Prozess berechtigt sind. Dazu erstellen Sie den entsprechenden Benutzerrollen-Setup -Datensatz, der Folgendes angibt:
+Sobald die Lebenszyklen ordnungsgemäß konfiguriert sind, sollte das System sicherstellen, dass der Adobe Sign-Administratorbenutzer von DAC für alle Dokumente hinzugefügt wird, die für den Adobe Acrobat Sign-Prozess geeignet sind. Dazu erstellen Sie den entsprechenden Benutzerrollen-Setup -Datensatz, der Folgendes angibt:
 
 * Dokumenttypgruppe als Adobe Sign-Dokument
 * Anwendungsrolle als Adobe Sign-Administratorrolle
@@ -307,7 +307,7 @@ Für die Integration von Adobe Acrobat Sign und Vault müssen Sie die folgenden 
 
    ![Bild von Adobe Sign erstellen](images/create-adobe-sign.png)
 
-* **Adobe Sign kündigen**: Mit dieser Option wird eine in Adobe Acrobat Sign vorhandene Vereinbarung abgebrochen und der Status eines Dokuments auf den ersten zurückgesetzt.
+* **Adobe Sign kündigen**: Mit dieser Option wird eine in Adobe Acrobat Sign vorhandene Vereinbarung abgebrochen und der Status eines Dokuments auf den ursprünglichen zurückgesetzt.
 
    Typ: Dokumentziel: Anzeige innerhalb der Vault-Anmeldedaten: Anmeldeinformationen nach der Sitzung über die URL nach der Nachricht aktivieren: : <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
@@ -386,7 +386,7 @@ Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktuali
 
       ![Bild](images/atomic-security.png)
 
-   * **In Adobe Sign Authoring**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Acrobat Sign hochgeladen wurde und dass sich die zugehörige Vereinbarung im Status AUTHORING oder DOCUMENTS_NOT_YET_PROCESSED befindet. Dies ist ein erforderlicher Status. Für diesen Status müssen die folgenden vier Benutzeraktionen definiert sein:
+   * **In Adobe Sign Authoring**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Acrobat Sign hochgeladen wurde und sich die zugehörige Vereinbarung im Status AUTHORING oder DOCUMENTS_NOT_YET_PROCESSED befindet. Dies ist ein erforderlicher Status. Für diesen Status müssen die folgenden vier Benutzeraktionen definiert sein:
 
       * Aktion, die den Status des Dokuments in &quot;Adobe Sign abgebrochen&quot; ändert Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, um welchen Lebenszyklus es sich handelt.
       * Aktion, die den Status des Dokuments in den Signierstatus &quot;In Adobe&quot; ändert. Der Name dieser Benutzeraktion muss für alle Dokumenttypen gleich sein, unabhängig davon, um welchen Lebenszyklus es sich handelt.
@@ -442,7 +442,7 @@ Sie müssen die entsprechenden Berechtigungen für jede Benutzerrolle im Lebensz
 
 ## Vernetzen [!DNL Veeva Vault] auf Adobe Acrobat Sign mit Middleware {#connect-middleware}
 
-Nach Abschluss der Einrichtung für [!DNL Veeva Vault] und dem Adobe Acrobat Sign-Administratorkonto muss der Administrator mithilfe der Middleware eine Verbindung zwischen den beiden Konten herstellen. Die [!DNL Veeva Vault] und die Adobe Acrobat Sign-Kontoverbindung wird von Adobe Acrobat Sign Identity initiiert und dann zum Speichern der[!DNL Veeva Vault] Identität.
+Nach Abschluss der Einrichtung für [!DNL Veeva Vault] und dem Adobe Acrobat Sign-Administratorkonto muss der Administrator mithilfe der Middleware eine Verbindung zwischen den beiden Konten herstellen. Die [!DNL Veeva Vault] und die Adobe Acrobat Sign-Kontoverbindung wird durch die Adobe Acrobat Sign-Identität initiiert und dann zum Speichern der[!DNL Veeva Vault] Identität.
 Für die Systemsicherheit und -stabilität muss der Administrator ein dediziertes [!DNL Veeva Vault] System-/Dienst-/Dienstprogrammkonto, z. B. `adobe.for.veeva@xyz.com`anstelle eines persönlichen Benutzerkontos, z. B. `bob.smith@xyz.com`.
 
 Ein Adobe Acrobat Sign-Kontoadministrator muss die folgenden Schritte ausführen, um eine Verbindung herzustellen: [!DNL Veeva Vault] auf Adobe Acrobat Sign über Middleware übertragen:
@@ -452,7 +452,11 @@ Ein Adobe Acrobat Sign-Kontoadministrator muss die folgenden Schritte ausführen
 
    ![Bild der Middleware-Anmeldung](images/middleware_login.png)
 
-1. Geben Sie auf der sich öffnenden Anmeldeseite von Adobe Acrobat Sign die E-Mail-Adresse und das Kennwort des Kontoadministrators ein, und wählen Sie dann **[!UICONTROL Anmelden]**.
+1. Um die Zugriffsebene für die Anwendung zu autorisieren, wählen Sie Acrobat Sign OAuth-Geltungsbereich als **[!UICONTROL KONTO]** oder **[!UICONTROL GRUPPE]**. Wählen Sie als Nächstes **[!UICONTROL Autorisieren]**.
+
+   ![Bild](images/middleware_oauth.png)
+
+1. Geben Sie auf der daraufhin geöffneten Adobe Acrobat Sign-Anmeldeseite die E-Mail-Adresse und das Kennwort des Kontoadministrators ein. Wählen Sie dann **[!UICONTROL Anmelden]**.
 
    ![Bild](images/middleware-signin.png)
 
@@ -490,7 +494,7 @@ Ein Adobe Acrobat Sign-Kontoadministrator muss die folgenden Schritte ausführen
 
 1. Um die automatische Bereitstellung von Benutzern in Adobe Acrobat Sign zuzulassen, aktivieren Sie das Kontrollkästchen **[!UICONTROL Sign-Benutzer automatisch bereitstellen]**.
 
-   **Hinweis:** Die automatische Bereitstellung neuer Adobe Acrobat Sign-Benutzer funktioniert nur, wenn sie zusätzlich zur Aktivierung auf der Adobe Acrobat Sign-Kontoebene in der Adobe Acrobat Sign aktiviert wurde **[!UICONTROL Sign-Benutzer automatisch bereitstellen]** für die[!DNL Veeva Vault] Adobe Acrobat Sign-Integration, wie unten vom Adobe Acrobat Sign-Kontoadministrator gezeigt.
+   **Hinweis:** Die automatische Bereitstellung neuer Adobe Acrobat Sign-Benutzer funktioniert nur, wenn sie zusätzlich zur Aktivierung auf der Adobe Acrobat Sign-Kontoebene in Adobe Acrobat Sign aktiviert wurde **[!UICONTROL Sign-Benutzer automatisch bereitstellen]** für die[!DNL Veeva Vault] Adobe Acrobat Sign-Integration, wie unten vom Adobe Acrobat Sign-Kontoadministrator gezeigt.
 
    ![Bild](images/allow-auto-provisioning.png)
 
