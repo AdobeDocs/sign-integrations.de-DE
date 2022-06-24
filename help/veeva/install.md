@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c60fd19fa52fb203fd19da69d58792ef6fb88eec
+source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '3931'
 ht-degree: 3%
@@ -30,7 +30,7 @@ Die allgemeinen Schritte zum Abschließen der Integration sind:
 * Aktivieren Sie Ihr Administratorkonto in Adobe Acrobat Sign (nur für neue Kunden).
 * Erstellen Sie Objekte, um den Verlauf eines Vereinbarungslebenszyklus in Vault zu verfolgen.
 * Erstellen Sie ein neues Sicherheitsprofil.
-* Konfigurieren Sie eine Gruppe in Adobe Acrobat Sign, in der sich die [!DNL Veeva Vault] Integrationsbenutzer.
+* Konfigurieren Sie eine Gruppe in Adobe Acrobat Sign für die [!DNL Veeva Vault] Integrationsbenutzer.
 * Erstellen Sie Dokumentfelder und Ausgabedarstellungen.
 * Konfigurieren Sie Webaktionen und aktualisieren Sie den Dokumentenlebenszyklus.
 * Erstellen Sie die Einrichtung des Dokumenttyps für Benutzer und Benutzerrollen.
@@ -52,7 +52,7 @@ So konfigurieren Sie Adobe Acrobat Sign für [!DNL Vault]eine neue Gruppe mit de
 
 ### Schritt 2. Paket bereitstellen {#deploy-package}
 
-[Paket bereitstellen](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip) und führen Sie die Schritte aus. Nach der Bereitstellung erstellt das Paket Folgendes:
+[Paket bereitstellen](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration-veeva.zip) und führen Sie die Schritte aus. Nach der Bereitstellung erstellt das Paket Folgendes:
 
 * Benutzerdefinierte Objekte: Signaturobjekt, Signaturobjekt, Signaturereignisobjekt, Prozessschließfach-Objekt
 * Seitenlayout des Signaturobjekts
@@ -79,12 +79,12 @@ Das Signaturobjekt wird erstellt, um Vereinbarungsinformationen zu speichern. Ei
 
 | Feld | Bezeichnung | Typ | Beschreibung |
 |:---|:---|:---|:------- | 
-| external_id__c | Vereinbarungs-ID | Zeichenfolge (100) | Enthält die eindeutige Vereinbarungs-ID von Adobe Acrobat Sign. |
+| external_id__c | Vereinbarungs-ID | Zeichenfolge (100) | Die eindeutige Vereinbarungs-ID der Adobe Acrobat Sign |
 | file_hash__c | Datei-Hash | Zeichenfolge (50) | Enthält die md5-Prüfsumme der Datei, die an Adobe Acrobat Sign gesendet wurde. |
 | name__v | Name | Zeichenfolge (128) | Der Name der Vereinbarung ist enthalten. |
 | sender__c | Absender | Objekt (Benutzer) | Enthält den Verweis auf den Vault-Benutzer, der die Vereinbarung erstellt hat. |
 | signature_status__c | Signaturstatus | Zeichenfolge (75) | Der Status der Vereinbarung in Adobe Acrobat Sign |
-| signature_type__c | Signaturtyp | Zeichenfolge (20) | Enthält den Signaturtyp der Vereinbarung in Adobe Acrobat Sign (WRITTEN oder ESIGN). |
+| signature_type__c | Signaturtyp | Zeichenfolge (20) | Der Signaturtyp der Vereinbarung in Adobe Acrobat Sign (WRITTEN oder ESIGN) |
 | start_date__c | Anfangsdatum | Datum/Uhrzeit | Datum, an dem die Vereinbarung zur Signatur gesendet wurde |
 | cancel_date__c | Kündigungsdatum | Datum/Uhrzeit | Enthält das Datum, an dem die Vereinbarung storniert wurde. |
 | complete_date__c | Abschlussdatum | Datum/Uhrzeit | Enthält das Datum, an dem die Vereinbarung abgeschlossen wurde. |
@@ -108,7 +108,7 @@ Unterzeichnerobjekt wird erstellt, um Informationen zu den Teilnehmern einer Ver
 | order__c | Auftrag | Zahl | Enthält die Bestellnummer des Adobe Acrobat Sign-Vereinbarungsteilnehmers. |
 | role__c | Rolle | Zeichenfolge (30) | Rolle des Adobe Acrobat Sign-Vereinbarungsteilnehmers |
 | signature__c | Signatur | Objekt (Signatur) | Enthält den Verweis auf den übergeordneten Signaturdatensatz. |
-| signature_status__c | Signaturstatus | Zeichenfolge (100) | Enthält den Status des Adobe Acrobat Sign-Vereinbarungsteilnehmers |
+| signature_status__c | Signaturstatus | Zeichenfolge (100) | Status des Teilnehmers der Adobe Acrobat Sign-Vereinbarung |
 | user__c | Benutzer | Objekt (Benutzer) | Enthält den Verweis auf den Benutzerdatensatz des Unterzeichners, wenn der Teilnehmer ein Vault-Benutzer ist. |
 
 ![Bild der Unterzeichnerdetails](images/signatory-object-details.png)
@@ -122,8 +122,8 @@ Signaturereignisobjektfelder
 | Feld | Bezeichnung | Typ | Beschreibung |
 |:---|:---|:---|:-------- | 
 | acting_user_email__c | Aktive Benutzer-E-Mail | Zeichenfolge | Enthält die E-Mail-Adresse des Adobe Acrobat Sign-Benutzers, der die Aktion ausgeführt hat, die zum Generieren des Ereignisses geführt hat |
-| acting_user_name__c | Amtierender Benutzername | Zeichenfolge | Enthält den Namen des Adobe Acrobat Sign-Benutzers, der die Aktion ausgeführt hat, die zum Generieren des Ereignisses geführt hat. |
-| description__c | Beschreibung | Zeichenfolge | Enthält die Beschreibung des Adobe Acrobat Sign-Ereignisses. |
+| acting_user_name__c | Amtierender Benutzername | Zeichenfolge | Enthält den Namen des Adobe Acrobat Sign-Benutzers, der die Aktion ausgeführt hat, durch die das Ereignis generiert wurde. |
+| description__c | Beschreibung | Zeichenfolge | Beschreibung des Adobe Acrobat Sign-Ereignisses |
 | event_date__c | Ereignisdatum | Datum/Uhrzeit | Datum und Uhrzeit der Adobe Acrobat Sign-Veranstaltung |
 | event_type__c | Ereignistyp | Zeichenfolge | Enthält den Typ des Adobe Acrobat Sign-Ereignisses |
 | name__v | Name | Zeichenfolge | Automatisch generierter Ereignisname |
@@ -191,7 +191,7 @@ Das Signature -Objekt, das als Teil des Bereitstellungspakets bereitgestellt wir
 
    ![Bild](images/view-participants-audit-history.png)
 
-* Auf der daraufhin geöffneten Seite werden die Teilnehmer und der Verlauf für das Adobe Acrobat Sign-Dokument angezeigt (siehe unten).
+* Auf der daraufhin geöffneten Seite werden die Teilnehmer und der Verlauf für das Adobe Acrobat Sign Dokument angezeigt (siehe unten).
 
    ![Bild](images/participants-and-history.png)
 
@@ -235,7 +235,7 @@ Wenn Sie das Adobe Acrobat Sign-Paket bereitstellen, wird ein Dokumenttyp-Gruppe
 
 ![Bild von Dokumenttypgruppen](images/document-type-groups.png)
 
-Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufügen, die für den Adobe Acrobat Sign-Prozess infrage kommen. Da die Eigenschaft Dokumenttypgruppe nicht von Typ zu Untertyp oder von Untertyp zu Klassifizierungsebene vererbt wird, muss sie für die Klassifizierung jedes Dokuments festgelegt werden, das für Adobe Acrobat Sign in Frage kommt.
+Sie müssen diese Dokumenttypgruppe für alle Dokumentklassifizierungen hinzufügen, die für den Adobe Acrobat Sign-Prozess infrage kommen. Da die Dokumenttypgruppeneigenschaft nicht von Typ zu Untertyp oder von Untertyp zu Klassifizierungsebene vererbt wird, muss sie für die Klassifizierung jedes Dokuments festgelegt werden, das für Adobe Acrobat Sign in Frage kommt.
 
 ![Bild eines Dokuments mit Bearbeitungsdetails](images/document-edit-details.png)
 
@@ -299,9 +299,9 @@ Der neue Ausgabedarstellungstyp namens *Original Rendition (original_rendition__
 
 ### Schritt 9. Webaktionen aktualisieren {#web-actions}
 
-Für die Integration von Adobe Acrobat Sign und Vault müssen Sie die folgenden zwei Webaktionen erstellen und konfigurieren:
+Für die Adobe Acrobat Sign- und Vault-Integration müssen Sie die folgenden zwei Webaktionen erstellen und konfigurieren:
 
-* **Adobe Sign erstellen**: Die Adobe Acrobat Sign-Vereinbarung wird erstellt oder angezeigt.
+* **Adobe Sign erstellen**: Der Adobe Acrobat Sign-Vertrag wird erstellt oder angezeigt.
 
    Typ: Dokumentziel: Anzeige innerhalb der Vault-Anmeldedaten: Anmeldeinformationen nach der Sitzung über die URL nach der Nachricht aktivieren: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
@@ -357,7 +357,7 @@ Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktuali
 
    Wenn ein Vault-Dokument an Adobe Acrobat Sign gesendet wird, sollte sein Status dem Status entsprechen, in dem sich die Vereinbarung befindet. Fügen Sie dazu in jedem Lebenszyklus, der von Dokumenten verwendet wird, die für die Adobe Signature berechtigt sind, folgende Status hinzu:
 
-   * **Vor der Signatur der Adobe** (Überprüft): Dies ist ein Platzhaltername für den Status, aus dem das Dokument an Adobe Acrobat Sign gesendet werden kann. Je nach Dokumenttyp kann der Status &quot;Entwurf&quot; oder &quot;Überprüft&quot; sein. Die Dokumentstatusbeschriftung kann gemäß den Anforderungen des Kunden angepasst werden. Vor dem Signaturstatus der Adobe müssen die folgenden zwei Benutzeraktionen definiert werden:
+   * **Vor der Signatur der Adobe** (Überprüft): Dies ist ein Platzhaltername für den Status, von dem aus Dokumente an Adobe Acrobat Sign gesendet werden können. Je nach Dokumenttyp kann der Status &quot;Entwurf&quot; oder &quot;Überprüft&quot; sein. Die Dokumentstatusbeschriftung kann gemäß den Anforderungen des Kunden angepasst werden. Vor dem Signaturstatus der Adobe müssen die folgenden zwei Benutzeraktionen definiert werden:
 
       * Aktion, die den Status des Dokuments in *In Adobe Sign Draft* Status. Der Name dieser Benutzeraktion muss für alle Dokumenttypen eines Lebenszyklus gleich sein.
       * Aktion, die die Webaktion &quot;Adobe Sign&quot; aufruft. Dieser Status muss über eine Sicherheit verfügen, die es der Adobe Sign-Administratorrolle ermöglicht, Folgendes zu tun: Dokument anzeigen, Inhalt anzeigen, Felder bearbeiten, Beziehungen bearbeiten, Quelle herunterladen, Darstellung verwalten und Status ändern.
@@ -371,7 +371,7 @@ Führen Sie die folgenden Schritte aus, um den Dokumentenlebenszyklus zu aktuali
       ![Bild](images/lifecycle-state-reviewed-1.png)
       ![Bild](images/lifecycle-state-reviewed-2.png)
 
-   * **In Adobe Sign Draft**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Acrobat Sign hochgeladen wurde und dass sich die zugehörige Vereinbarung im Status ENTWURF befindet. Dies ist ein erforderlicher Status. Dieser Status muss die folgenden fünf Benutzeraktionen definieren:
+   * **In Adobe Sign Draft**: Dies ist ein Platzhaltername für den Status, der angibt, dass das Dokument bereits in Adobe Acrobat Sign hochgeladen wurde und sich die zugehörige Vereinbarung im Status ENTWURF befindet. Dies ist ein erforderlicher Status. Dieser Status muss die folgenden fünf Benutzeraktionen definieren:
 
       * Aktion, die den Status des Dokuments in *In Adobe Sign Authoring* Status. Der Name dieser Benutzeraktion muss für alle Dokumenttypen eines Lebenszyklus gleich sein.
       * Aktion, die den Status des Dokuments in *Signierstatus &quot;In Adobe&quot;*. Der Name dieser Benutzeraktion muss für alle Dokumenttypen eines Lebenszyklus gleich sein.
@@ -442,10 +442,10 @@ Sie müssen die entsprechenden Berechtigungen für jede Benutzerrolle im Lebensz
 
 ## Vernetzen [!DNL Veeva Vault] auf Adobe Acrobat Sign mit Middleware {#connect-middleware}
 
-Nach Abschluss der Einrichtung für [!DNL Veeva Vault] und dem Adobe Acrobat Sign-Administratorkonto muss der Administrator mithilfe der Middleware eine Verbindung zwischen den beiden Konten herstellen. Die [!DNL Veeva Vault] und die Adobe Acrobat Sign-Kontoverbindung wird durch die Adobe Acrobat Sign-Identität initiiert und dann zum Speichern der[!DNL Veeva Vault] Identität.
+Nach Abschluss der Einrichtung für [!DNL Veeva Vault] und dem Adobe Acrobat Sign Admin-Konto muss der Administrator mithilfe der Middleware eine Verbindung zwischen den beiden Konten herstellen. Die [!DNL Veeva Vault] und die Adobe Acrobat Sign-Kontoverbindung wird von Adobe Acrobat Sign Identity initiiert und dann zum Speichern der[!DNL Veeva Vault] Identität.
 Für die Systemsicherheit und -stabilität muss der Administrator ein dediziertes [!DNL Veeva Vault] System-/Dienst-/Dienstprogrammkonto, z. B. `adobe.for.veeva@xyz.com`anstelle eines persönlichen Benutzerkontos, z. B. `bob.smith@xyz.com`.
 
-Ein Adobe Acrobat Sign-Kontoadministrator muss die folgenden Schritte ausführen, um eine Verbindung herzustellen: [!DNL Veeva Vault] auf Adobe Acrobat Sign über Middleware übertragen:
+Ein Adobe Acrobat Sign-Kontoadministrator muss die folgenden Schritte ausführen, um eine Verbindung herzustellen [!DNL Veeva Vault] auf Adobe Acrobat Sign über Middleware:
 
 1. Wechseln Sie zur Registerkarte [Adobe Acrobat Sign für [!DNL Veeva Vault] Startseite](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
 1. Auswählen **[!UICONTROL Anmeldung]** in der rechten oberen Ecke.
@@ -494,7 +494,7 @@ Ein Adobe Acrobat Sign-Kontoadministrator muss die folgenden Schritte ausführen
 
 1. Um die automatische Bereitstellung von Benutzern in Adobe Acrobat Sign zuzulassen, aktivieren Sie das Kontrollkästchen **[!UICONTROL Sign-Benutzer automatisch bereitstellen]**.
 
-   **Hinweis:** Die automatische Bereitstellung neuer Adobe Acrobat Sign-Benutzer funktioniert nur, wenn sie zusätzlich zur Aktivierung auf der Adobe Acrobat Sign-Kontoebene in Adobe Acrobat Sign aktiviert wurde **[!UICONTROL Sign-Benutzer automatisch bereitstellen]** für die[!DNL Veeva Vault] Adobe Acrobat Sign-Integration, wie unten vom Adobe Acrobat Sign-Kontoadministrator gezeigt.
+   **Hinweis:** Die automatische Bereitstellung neuer Adobe Acrobat Sign-Benutzer funktioniert nur, wenn sie zusätzlich zur Aktivierung auf der Adobe Acrobat Sign-Kontoebene in der Adobe Acrobat Sign aktiviert wurde **[!UICONTROL Sign-Benutzer automatisch bereitstellen]** für die[!DNL Veeva Vault] Adobe Acrobat Sign-Integration, wie unten vom Adobe Acrobat Sign-Kontoadministrator gezeigt.
 
    ![Bild](images/allow-auto-provisioning.png)
 

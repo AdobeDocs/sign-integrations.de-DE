@@ -9,7 +9,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 076c575d179f576366c1d9a76be0a582154574b1
+source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -24,11 +24,11 @@ Dieses Dokument soll Ihnen helfen, [!DNL Veeva Vault] Kunden erfahren, wie sie A
 
 ## Übersicht {#overview}
 
-Integration von Adobe Acrobat Sign mit [!DNL Veeva Vault] erleichtert den Prozess des Einholens einer Signatur oder Genehmigung für jede Dokumentation, die rechtsgültige Signaturen oder eine überprüfbare Dokumentverarbeitung erfordert.
+Integration zwischen Adobe Acrobat Sign und [!DNL Veeva Vault] erleichtert den Prozess des Einholens einer Signatur oder Genehmigung für jede Dokumentation, die rechtsgültige Signaturen oder eine überprüfbare Dokumentverarbeitung erfordert.
 
 Der gesamte Prozess des Versendens von Dokumenten zum Unterschreiben ähnelt dem des Versendens einer E-Mail, sodass er für die meisten Benutzer einfach zu übernehmen ist.
 
-Integration von Adobe Acrobat Sign mit [!DNL Veeva Vault] Optimierung und Beschleunigung von Dokumenten- und Unterschrifts-Workflows. Wenn Sie den Integrationsarbeitsablauf verwenden, haben Sie folgende Möglichkeiten:
+Integration zwischen Adobe Acrobat Sign und [!DNL Veeva Vault] Optimierung und Beschleunigung von Dokumenten- und Unterschrifts-Workflows. Wenn Sie den Integrationsarbeitsablauf verwenden, haben Sie folgende Möglichkeiten:
 
 * Sparen Sie Zeit und Ressourcen, die Sie für Schneckenmails, Übernachtungen oder Faxe aufwenden müssen.
 * Versendet Verträge zur elektronischen Unterzeichnung oder Genehmigung von [!DNL Veeva Vault], greifen Sie auf den Vertragsverlauf in Echtzeit zu und zeigen Sie gespeicherte Verträge an.
@@ -38,7 +38,7 @@ Integration von Adobe Acrobat Sign mit [!DNL Veeva Vault] Optimierung und Beschl
 
 ## Vertrag mit Adobe Acrobat Sign für [!DNL Veeva Vault] {#send-sign-vault-agreement}
 
-So senden Sie eine Vereinbarung mit Adobe Acrobat Sign für Veeva:
+So senden Sie einen Vertrag mit Adobe Acrobat Sign für Veeva:
 
 1. Wechseln Sie zur Registerkarte [[!DNL Veeva Vault] Anmeldeseite](https://login.veevavault.com/) und geben Sie Ihren Benutzernamen und Ihr Kennwort ein. Es öffnet die Homepage Ihres Vault, wie unten gezeigt.
 
@@ -54,11 +54,12 @@ So senden Sie eine Vereinbarung mit Adobe Acrobat Sign für Veeva:
 
 1. Wählen Sie im angezeigten Dialogfeld **[!UICONTROL Typ]** als *[!UICONTROL Klinisch]* und wählen Sie dann ein **[!UICONTROL Untertyp]** und **[!UICONTROL Klassifizierung]**, falls erforderlich.
 
+
    ![](images/choose-document-type.png)
 
 1. Um das Dialogfeld zu schließen, wählen Sie **[!UICONTROL Ok]**.
 
-1. Auswählen **[!UICONTROL Weiter]**.
+1. Wählen Sie **[!UICONTROL Weiter]** aus.
 
 1. Füllen Sie im angezeigten Fenster alle erforderlichen Felder im Metadatenabschnitt aus und wählen Sie **[!UICONTROL Speichern]**.
 
