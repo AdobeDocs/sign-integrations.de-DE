@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 08d55f79fd4fff8f13dc23b9d155e501ca038be1
+source-git-commit: c09759f2455b476fd1093d845cee4f5c3c3601d7
 workflow-type: tm+mt
 source-wordcount: '4169'
 ht-degree: 3%
@@ -289,13 +289,13 @@ So richten Sie Dokumentfelder ein:
 
 Der neue Ausgabedarstellungstyp namens *Adobe Sign Rendition (adobe_sign_rendition__c)* wird von der Vault-Integration verwendet, um signierte PDF-Dokumente in Adobe Acrobat Sign hochzuladen. Sie müssen die Adobe Sign-Ausgabedarstellung für jeden Dokumenttyp deklarieren, der für Adobe Acrobat Signature geeignet ist.
 
-Sie müssen die Originaldarstellung für jeden Dokumenttyp deklarieren, der für Adobe Acrobat Signature geeignet ist.
-
 ![Bild von Darstellungsarten](images/rendition-type.png)
 
 ![Bild](images/edit-details-clinical.png)
 
 Der neue Ausgabedarstellungstyp namens *Originaldarstellung* (original_rendition__c) wird von der Vault-Integration als Name der Ausgabedarstellung verwendet, mit der die ursprüngliche sichtbare Ausgabedarstellung gespeichert werden soll, wenn das signierte Dokument als sichtbare Ausgabedarstellung importiert wird.
+
+Sie müssen die Originaldarstellung für jeden Dokumenttyp deklarieren, der für Adobe Acrobat Signature geeignet ist.
 
 ![Bild](images/original-rendition.png)
 
