@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 00db62c894df93abac31bf8196730382d54e8fa0
+source-git-commit: 76f1be575130e89d96dfe45f7343382b3a519903
 workflow-type: tm+mt
-source-wordcount: '4176'
+source-wordcount: '4171'
 ht-degree: 3%
 
 ---
@@ -320,7 +320,7 @@ Wenn ein Benutzer sich für eine digitale Signaturvereinbarung mit den oben gena
 
 Um den Dokumentinhalt zusammen mit der digitalen Signatur und dem Audit-Verlauf anzuzeigen, wählen Sie in der Admin-Benutzeroberfläche für digitale Signaturen nicht &quot;Audit-Bericht an signierte Darstellung anhängen&quot; mit &quot;Acrobat Sign-Darstellung anzeigen&quot;.
 
-Mit der Funktion &quot;Adobe Audit Trail Rendition&quot; können Sie das Ausgabedarstellungsprotokoll als separate Ausgabedarstellung von der unterzeichneten Ausgabedarstellung herunterladen oder anzeigen.
+Sie können die Adobe Audit Trail Rendition verwenden, um das Adobe Audit Trail als separate Wiedergabe herunterzuladen oder anzuzeigen.
 
 ![Bild](images/audit-trail-rendition-setup-4.png)
 
