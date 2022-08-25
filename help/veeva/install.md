@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 163c74a2e03aeaa0627d972b791166d4ea4e66a6
+source-git-commit: 08d55f79fd4fff8f13dc23b9d155e501ca038be1
 workflow-type: tm+mt
-source-wordcount: '3933'
+source-wordcount: '4169'
 ht-degree: 3%
 
 ---
@@ -82,7 +82,7 @@ Das Signaturobjekt wird erstellt, um Vereinbarungsinformationen zu speichern. Ei
 | external_id__c | Vereinbarungs-ID | Zeichenfolge (100) | Die eindeutige Vereinbarungs-ID der Adobe Acrobat Sign |
 | file_hash__c | Datei-Hash | Zeichenfolge (50) | Enthält die md5-Prüfsumme der Datei, die an Adobe Acrobat Sign gesendet wurde. |
 | name__v | Name | Zeichenfolge (128) | Der Name der Vereinbarung ist enthalten. |
-| sender__c | Absender | Objekt (Benutzer) | Enthält den Verweis auf den Vault-Benutzer, der die Vereinbarung erstellt hat. |
+| sender__c | Absender*in | Objekt (Benutzer) | Enthält den Verweis auf den Vault-Benutzer, der die Vereinbarung erstellt hat. |
 | signature_status__c | Signaturstatus | Zeichenfolge (75) | Der Status der Vereinbarung in Adobe Acrobat Sign |
 | signature_type__c | Signaturtyp | Zeichenfolge (20) | Der Signaturtyp der Vereinbarung in Adobe Acrobat Sign (WRITTEN oder ESIGN) |
 | start_date__c | Anfangsdatum | Datum/Uhrzeit | Datum, an dem die Vereinbarung zur Signatur gesendet wurde |
@@ -289,13 +289,40 @@ So richten Sie Dokumentfelder ein:
 
 Der neue Ausgabedarstellungstyp namens *Adobe Sign Rendition (adobe_sign_rendition__c)* wird von der Vault-Integration verwendet, um signierte PDF-Dokumente in Adobe Acrobat Sign hochzuladen. Sie müssen die Adobe Sign-Ausgabedarstellung für jeden Dokumenttyp deklarieren, der für Adobe Acrobat Signature geeignet ist.
 
+Sie müssen die Originaldarstellung für jeden Dokumenttyp deklarieren, der für Adobe Acrobat Signature geeignet ist.
+
 ![Bild von Darstellungsarten](images/rendition-type.png)
 
 ![Bild](images/edit-details-clinical.png)
 
-Der neue Ausgabedarstellungstyp namens *Original Rendition (original_rendition__c)* wird von der Vault-Integration als Name der Ausgabedarstellung verwendet, mit der die ursprüngliche sichtbare Ausgabedarstellung gespeichert werden soll, wenn das signierte Dokument als sichtbare Ausgabedarstellung importiert wird.
+Der neue Ausgabedarstellungstyp namens *Originaldarstellung* (original_rendition__c) wird von der Vault-Integration als Name der Ausgabedarstellung verwendet, mit der die ursprüngliche sichtbare Ausgabedarstellung gespeichert werden soll, wenn das signierte Dokument als sichtbare Ausgabedarstellung importiert wird.
 
 ![Bild](images/original-rendition.png)
+
+Optional kann der Tresor einen neuen Ausgabedarstellungstyp Adobe Audit Trail Rendition (adobe_audit_trail_rendition__c) aufweisen, der von der Tresorintegration zum Speichern des Berichts über Adobe-Audit Trails verwendet wird.
+
+Führen Sie die folgenden Schritte aus, um Adobe Audit Trail Rendition einzurichten:
+
+1. Wechseln zu **Darstellungstyp** > **Neuen Darstellungstyp erstellen**.
+Erstellen Sie den neuen Ausgabedarstellungstyp als Prüfprotokoll-Ausgabedarstellung (adobe_audit_trail_rendition__c).
+
+   ![Bild](images/audit-trail-rendition-setup-1.png)
+
+1. Zum Anzeigen und Herunterladen der Adobe Audit Trail-Darstellung für Dokumente deklarieren Sie *Ausgabedarstellung des Adobe Audit Trail* für jeden Dokumenttyp, der für Adobe Acrobat Signature berechtigt ist.
+
+   ![Bild](images/audit-trail-rendition-setup-2.png)
+
+**Hinweis**: Sie können den Audit-Bericht an die unterzeichnete Ausgabedarstellung anhängen, indem Sie **[!UICONTROL Audit-Bericht an signierte Darstellung anhängen]** sowie die Darstellung anzeigen, indem Sie ****[!UICONTROL Acrobat Sign-Ausgabedarstellung anzeigen]**** in den Einstellungen der Admin-Benutzeroberfläche.
+
+![Bild](images/audit-trail-rendition-setup-3.png)
+
+Wenn ein Benutzer sich für eine digitale Signaturvereinbarung mit den oben genannten Einstellungen entscheidet, wird eine Meldung (wie unten gezeigt) angezeigt, die darauf hinweist, dass Adobe Acrobat Sign PDF Portfolio zum Kombinieren von digital signierten PDF- und Audit-Protokollberichten verwendet.
+
+Um den Dokumentinhalt zusammen mit der digitalen Signatur und dem Audit-Verlauf anzuzeigen, wählen Sie in der Admin-Benutzeroberfläche für digitale Signaturen nicht &quot;Audit-Bericht an signierte Darstellung anhängen&quot; mit &quot;Acrobat Sign-Darstellung anzeigen&quot;.
+
+Sie können das Ausgabedarstellungsprüfprotokoll als separate Ausgabedarstellung von der signierten Ausgabedarstellung herunterladen oder anzeigen.
+
+![Bild](images/audit-trail-rendition-setup-4.png)
 
 ### Schritt 9. Webaktionen aktualisieren {#web-actions}
 
